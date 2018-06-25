@@ -31,7 +31,7 @@ my $changelog = "
 \n";
 
 my $usage = "\nUsage [$version]: 
-    perl $scriptname -t <table> -f <file with ltr cordinates> [-m yes to find mappabilty] [-p <path of the outputdirectory>][-o <output file>] [-v] [-c] [-h] 
+    perl $scriptname -t <table> -f <file with ltr cordinates> [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p <path of the outputdirectory>][-o <output file>] [-v] [-c] [-h] 
 	
     MANDATORY ARGUMENT:	
     -t,--table (string) file contain accession information first column needs to be the IDs, second column BAMIDs

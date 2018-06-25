@@ -110,23 +110,24 @@ my $usage = "\nUsage [$version]:
 	
     MANDATORY ARGUMENT:	
     -t,--table 	      (STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
-    -f,--file         (STRING) file containing accesion information 
-    -bl,--bamlocation (STRING) location of bam files  
+    -f,--file         (STRING) file containing cordinates of solo LTR (sampleID, chr, start, end (of solo LTR),unique identifier,length,strand ) 
+    -bl,--bamlocation (STRING) location of bam files
+    -b,--both   		(BOOL)   run extraction and assembly with sliced bam file for viewing IGV
+     
     OPTIONAL ARGUMENTS:  
     -p,--path   		(STRING) output directory name (path)
                          	 	 Default = <current working directory>
-    -te,--teseq 		(STRING) envelope and gag sequence of the provirus
+    -te,--teseq 		(STRING) consensus internal sequence of the provirus
     -g,	--genome		(STRING) path of the genome
     -rd,--readepth  	(BOOL)   read depth analysis
     -x, --extract   	(BOOL)	 extract genomic sequence               
     -i,--igv    		(BOOL)   only IGV has to be run
     -e,--reads  		(BOOL)   run picard tools and cap3 for extracting and assembling reads 
-    -b,--both   		(BOOL)   run both picardtools and igv
     -m --mapscores 		(BOOL) 	 Need to calculate mappability scores	
     -db --mysqldbinfo 	(STRING) database=jainys_db, (needs to prepare before running script)   
     -u --user 			(STRING) Username for mysql database,(needs to prepare before running script) 
     -pd,--password 		(STRING) password for mysql database,(needs to prepare before running script) 
-    -mt,--mysqltable     (STRING) mysql table containing mappability scores (needs to prepare before running script)  
+    -mt,--mysqltable    (STRING) mysql table containing mappability scores (needs to prepare before running script)  
     -c,--chlog  		(BOOL)   Print updates
     -v,--v      		(BOOL)   Print version if only option
     -s,--verbose		(BOOL)   The script will talk to you
