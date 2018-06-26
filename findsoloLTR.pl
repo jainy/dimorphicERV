@@ -17,7 +17,7 @@ use MIME::Lite;
 use DBI;
 
 
-my $version = "3.1";
+my $version = "3.2";
 my $scriptname = "verifydeletions.pl";
 my $changelog = "
 #   - v1.0 = 30 July 2017 
@@ -31,11 +31,12 @@ my $changelog = "
 \n";
 
 my $usage = "\nUsage [$version]: 
-    perl $scriptname -t <table> -f <file with ltr cordinates> [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p <path of the outputdirectory>][-o <output file>] [-v] [-c] [-h] 
+    perl $scriptname -t <table> -f <file with ltr cordinates> -bl <location of bamfiles> [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p <path of the outputdirectory>][-o <output file>] [-v] [-c] [-h] 
 	
     MANDATORY ARGUMENT:	
     -t,--table (string) file contain accession information first column needs to be the IDs, second column BAMIDs
     -f,--file  (string) file containing accesion information (output from the script get_coverage_coordinates.pl script on bedtools)
+    -bl,--bamlocation (STRING) location of bam files
     	  
     OPTIONAL ARGUMENTS:
     -m, --mappability  (STRING)  yes if need to find mappability 
@@ -58,12 +59,13 @@ my $usage = "\nUsage [$version]:
 #-----------------------------------------------------------------------------
 #------------------------------ LOAD AND CHECK -------------------------------
 #-----------------------------------------------------------------------------
-my ($file,$path,$rawout,$table,$verbose,$mappability,$mysqltable,$mysqldb,$user,$password,$igv,$help,$v,$chlog);
+my ($file,$path,$rawout,$table,$verbose,$mappability,$bamlocation,$mysqltable,$mysqldb,$user,$password,$igv,$help,$v,$chlog);
 GetOptions ('f=s' => \$file,
             'p=s' => \$path,
             'o=s' => \$rawout,
             't=s' => \$table,
             'm=s' => \$mappability,
+            'bl=s'=> \$bamlocation,
             'mt=s'=> \$mysqltable,
             'db=s'=> \$mysqldb,
             'u=s' => \$user,
@@ -85,7 +87,7 @@ my $logfile = "$path/$file.log";
 #-----------------------------------------------------------------------------
 #----------------------------------- MAIN ------------------------------------
 #-----------------------------------------------------------------------------
-my $bamlocation = "/kbod2/WGS_DATA/SGDP_bams_public";#vader server
+#my $bamlocation = "/kbod2/WGS_DATA/SGDP_bams_public";#vader server
 
 my %bamfile = ();
 my $bamid;
