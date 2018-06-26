@@ -61,7 +61,7 @@ Typical Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinate
     -c,--chlog  		(BOOL)   Print updates
     -v,--v      		(BOOL)   Print version if only option
     -s,--verbose		(BOOL)   The script will talk to you
-    -h,--help  			(BOOL)   Print this usage\n\n"
+    -h,--help			(BOOL)   Print this usage\n\n"
 
 
 Output:The predictions are in the *.prediction_alleles.txt 
@@ -82,7 +82,7 @@ Typical Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file 
     -c,--chlog  	(BOOL)   Print updates
     -v,--v      	(BOOL)   Print version if only option
     -s,--verbose	(BOOL)   The script will talk to you
-    -h,--help  	  	(BOOL)   Print this usage
+    -h,--help		(BOOL)   Print this usage
 
 Output: The output is in Refine.prediction_alleles.txt. Reports if able to assemble solo LTR allele using an alternate assembler.
 
@@ -93,8 +93,8 @@ Find provirus to solo LTR variants using findsoloLTR pipeline.
 Typical Usage:perl findsoloLTR.pl -t table -f file with ltr cordinates -bl location of bamfiles [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p path of the outputdirectory][-o output file] [-v] [-c] [-h] 
 	
     MANDATORY ARGUMENT:	
-    -t,--table 			(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
-    -f,--file  			(STRING) file containing accesion information (output from the script get_coverage_coordinates.pl script on bedtools)
+    -t,--table			(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
+    -f,--file			(STRING) file containing accesion information (output from the script get_coverage_coordinates.pl script on bedtools)
     -bl,--bamlocation 	(STRING) location of bam files
       	  
     OPTIONAL ARGUMENTS:
