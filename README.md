@@ -28,10 +28,9 @@ Typical Usage "perl rename_mergedLTRelements.pl -f <file that needs to renamed> 
     -s,--verbose(BOOL)   The script will talk to you
     -h,--help>  (BOOL)   Print this usage\n\n"
 
-
- 
+findprovirus pipeline
 ------------------------------------------------------------------------------------------------------------
-Step 2: Find solo-LTR to provirus variants using findprovirus pipeline.
+Find solo-LTR to provirus variants using findprovirus pipeline.
 
 Need to generate a mysql (mariadb) database and an indexed table if need to obtain the mappability scores.
 Typical Usage: perl findprovirus_1.pl -t <BAM ID table> -f <file with ltr cordinates> -bl <location of bamfiles> -b [-p <path of the outputdirectory>][-g <path of the genome>][-m mapscores][-te <TEseq>][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
@@ -64,7 +63,7 @@ Typical Usage: perl findprovirus_1.pl -t <BAM ID table> -f <file with ltr cordin
 
 Output:The predictions are in the *.prediction_alleles.txt 
 Note: parallel can be used to speed up this step. The input file can be split to multiple files. Then parallel is used when running the above command.     
-------------------------------------------------------------------------------------------------------------
+
 if you want to try an alternate assembler the following script is recommended to run.
 
 
@@ -83,9 +82,9 @@ Typical Usage: perl findprovirus_2.pl -t <BAM ID table> -f <prediction output fi
     -h,--help>  	(BOOL)   Print this usage
 
 Output: The output is in Refine.prediction_alleles.txt. Reports if able to assemble solo LTR allele using an alternate assembler.
-------------------------------------------------------------------------------------------------------------
-findsoloLTR pipeline
 
+findsoloLTR pipeline
+------------------------------------------------------------------------------------------------------------
 Find provirus to solo LTR variants using findsoloLTR pipeline.
 
 Typical Usage:perl findsoloLTR.pl -t <table> -f <file with ltr cordinates> [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p <path of the outputdirectory>][-o <output file>] [-v] [-c] [-h] 
