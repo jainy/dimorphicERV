@@ -24,11 +24,14 @@ Typical Usage "perl rename_mergedLTRelements.pl -f <file that needs to renamed> 
     -v,--v      (BOOL)   Print version if only option
     -s,--verbose(BOOL)   The script will talk to you
     -h,--help>  (BOOL)   Print this usage\n\n"
+Output:
+A bed format file will be generated cordinates and with a unique name stating whether its a solo LTR or a 2 LTR provirus
+Create a text file containing only solo LTRs by using grep "soloLTR" and create a text file containing only 2 LTR provirus by using grep "2LTR" 
 ------------------------------------------------------------------------------------------------------------
 Step 2: Find solo-LTR to provirus variants using findprovirus pipeline.
 
 Need to generate a mysql (mariadb) database and an indexed table if need to obtain the mappability scores.
-Typical Usage "perl findprovirus_1.pl -t <BAM ID table> -f <file with ltr cordinates> -bl <location of bamfiles> -b [-p <path of the outputdirectory>][-g <path of the genome>][-m mapscores][-te <TEseq>][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
+Typical Usage: perl findprovirus_1.pl -t <BAM ID table> -f <file with ltr cordinates> -bl <location of bamfiles> -b [-p <path of the outputdirectory>][-g <path of the genome>][-m mapscores][-te <TEseq>][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
     -t,--table 	      	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
@@ -54,11 +57,13 @@ Typical Usage "perl findprovirus_1.pl -t <BAM ID table> -f <file with ltr cordin
     -v,--v      		(BOOL)   Print version if only option
     -s,--verbose		(BOOL)   The script will talk to you
     -h,--help>  		(BOOL)   Print this usage\n\n"
-    
+
+
+Output:The predictions are in the *.prediction_alleles.txt      
 
 if you want to try an alternate assembler the following script is recommended to run.
 
-perl findprovirus_2.pl -t <BAM ID table> -f <prediction output file from the first run> -p <path of the outputdirectory>[-v] [-c] [-h] [-s]
+Typical Usage: perl findprovirus_2.pl -t <BAM ID table> -f <prediction output file from the first run> -p <path of the outputdirectory>[-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
     -t,--table 	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
@@ -71,18 +76,20 @@ perl findprovirus_2.pl -t <BAM ID table> -f <prediction output file from the fir
     -v,--v      	(BOOL)   Print version if only option
     -s,--verbose	(BOOL)   The script will talk to you
     -h,--help>  	(BOOL)   Print this usage\n\n";
+Output: Reports if able to assemble solo LTR allele
 ------------------------------------------------------------------------------------------------------------
 findsoloLTR pipeline
 
 Find provirus to solo-LTR variants using findsoloLTR pipeline.
 
-"perl findsoloLTR.pl -t <table> -f <file with ltr cordinates> [-p <path of the outputdirectory>][-o <output file>] [-v] [-c] [-h]"
+Typical Usage:perl $scriptname -t <table> -f <file with ltr cordinates> [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p <path of the outputdirectory>][-o <output file>] [-v] [-c] [-h] 
 	
     MANDATORY ARGUMENT:	
-    -t,--table (string) file contain accession information first column needs to be the sampleIDs, second column BAMIDs
-    -f,--file  (string) file containing accesion information ( sampleID, chr, start, end (of provirus),unique identifier,length,strand )
+    -t,--table (string) file contain accession information first column needs to be the IDs, second column BAMIDs
+    -f,--file  (string) file containing accesion information (output from the script get_coverage_coordinates.pl script on bedtools)
     	  
     OPTIONAL ARGUMENTS:
+    -m, --mappability  (STRING)  yes if need to find mappability 
     -mt,--table 		(STRING) mysql table e.g.	hg19wgEncodeCrgMapabilityAlign100mer_index
     												wgEncodeCrgMapabilityAlign100merhg38_lo_index
     -p,--path         	(STRING) output directory name (path)
