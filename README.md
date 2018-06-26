@@ -74,7 +74,7 @@ Typical Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file 
 	
     MANDATORY ARGUMENT:	
     -t,--table 		(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
-    -f,--file   	(STRING) output containing genotype prediction
+    -f,--file   	(STRING) output from findprovirus_1 script (*.prediction_alleles.txt)
     -p,--path   	(STRING) output directory name (path where extracted reads, mapped reads, extracted genomic sequences are found)	  
     -bl,--bamloc	(STRING) location of bam files
     
@@ -93,8 +93,8 @@ Find provirus to solo LTR variants using findsoloLTR pipeline.
 Typical Usage:perl findsoloLTR.pl -t table -f file with ltr cordinates -bl location of bamfiles [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p path of the outputdirectory][-o output file] [-v] [-c] [-h] 
 	
     MANDATORY ARGUMENT:
-    -t,--table			(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
-    -f,--file			(STRING) file containing accesion information (output from the script get_coverage_coordinates.pl script on bedtools)
+    -t,--table			(STRING) file with first column needs to be the sampleIDs, second column BAMIDs
+    -f,--file			(STRING) file containing cordinates of solo LTR (sampleID, chr, start, end (of solo LTR),unique identifier,length,strand ) 
     -bl,--bamlocation 	(STRING) location of bam files
       	  
     OPTIONAL ARGUMENTS:
