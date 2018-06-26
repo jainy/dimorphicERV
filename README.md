@@ -6,37 +6,13 @@ from whole genome resequencing paired-end data aligned to the reference genome.
 
 Both pipeline requires the start and end cordinates of solo LTR or proviral copies of the HERV family.
 
-To generate the catalogue of solo LTR and proviral elements of a particular family the tool
-One Code to Find them All (Bailly-Bechet et al. 2014) is used. The script called rename_mergedLTRelementsdotpl is used to identify the boundaries of element and provide a unique name to each copy.
-
-Typical Usage: perl rename_mergedLTRelements.pl -f file that needs to renamed -ltr name of ltr=length of LTR -int name of internalsequence -ilen length of internal sequence -rn name that you would like give [-v version] [-c change log] [-h help]
-
-	MANDATORY ARGUMENT:
-    -f,--file          	(STRING) file
-    -ltr,--ltrname     	(STRING) Name of the ltr that needs to be rejoined=length of the ltr that can be classified as soloLTR (~5-10 bp length less than consensus length) 
-								e.g. -ltr MER66C=550 -ltr MER66B=481 -ltr MER66D=479
-	-int,--intname  	(STRING) Name of the internal erv sequence that needs to be rejoined
-	-ilen,--lenint		(STRING) length of the total internal sequence that can be classified as complete (~5-10 bp length less than consensus length)
-    -rn,--rename		(STRING) the name that you would like to give to the element (eg. HERVH or HERVW or HERV17)
-    
-    OPTIONAL ARGUMENTS:
-    -o,--out    		(STRING) name of the output file
-    -c,--chlog  		(BOOL)   Print updates
-    -v,--v      		(BOOL)   Print version if only option
-    -s,--verbose		(BOOL)   The script will talk to you
-    -h,--help    		(BOOL)   Print this usage
-    
-Output: A bed format file will be generated cordinates and with a unique name stating whether its a solo LTR or a 2 LTR provirus
-Create a text file containing only solo LTRs by using grep "soloLTR" and create a text file containing only 2 LTR provirus by using grep "2LTR".
-Create a input file for the next two scripts by adding the sample IDs to be tested as the first column.
-
 
 findprovirus pipeline
 ------------------------------------------------------------------------------------------------------------
 Find solo-LTR to provirus variants using findprovirus pipeline.
 
 Need to generate a mysql (mariadb) database and an indexed table if need to obtain the mappability scores.
-Typical Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinates -bl location of bamfiles -b [-p path of the outputdirectory][-g path of the genome][-m mapscores][-te TEseq][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
+Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinates -bl location of bamfiles -b [-p path of the outputdirectory][-g path of the genome][-m mapscores][-te TEseq][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
 	-t,--table 	      	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
@@ -65,12 +41,11 @@ Typical Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinate
 
 
 Output:The predictions are in the *.prediction_alleles.txt 
-Note: parallel can be used to speed up this step. The input file can be split to multiple files. Then parallel is used when running the above command.     
+   
 
 if you want to try an alternate assembler the following script is recommended to run.
 
-
-Typical Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file from the first run -p path of the outputdirectory -bl location of bamfiles[-v] [-c] [-h] [-s]
+Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file from the first run -p path of the outputdirectory -bl location of bamfiles[-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
     -t,--table   	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
@@ -86,11 +61,13 @@ Typical Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file 
 
 Output: The output is in Refine.prediction_alleles.txt. Reports if able to assemble solo LTR allele using an alternate assembler.
 
+
+
 findsoloLTR pipeline
 ------------------------------------------------------------------------------------------------------------
 Find provirus to solo LTR variants using findsoloLTR pipeline.
 
-Typical Usage:perl findsoloLTR.pl -t table -f file with ltr cordinates -bl location of bamfiles [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p path of the outputdirectory][-o output file] [-v] [-c] [-h] 
+Usage:perl findsoloLTR.pl -t table -f file with ltr cordinates -bl location of bamfiles [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p path of the outputdirectory][-o output file] [-v] [-c] [-h] 
 	
     MANDATORY ARGUMENT:
     -t,--table  		(STRING) file with first column needs to be the sampleIDs, second column BAMIDs
@@ -111,5 +88,55 @@ Typical Usage:perl findsoloLTR.pl -t table -f file with ltr cordinates -bl locat
     -s,--verbose		(BOOL)   The script will talk to you
     -h,--help   		(BOOL)   Print this usage
 
-Output: The output is *.readdepth.output.txt.  
+Output: The output is *.readdepth.output.txt. 
 
+Requirements
+------------------------------------------------------------------------------------------------------------
+These are required for running findprovirus_1 and findsoloLTR scripts. These softwares has to be installed and the location has to be added to the script
+
+samtools (http://www.htslib.org/)
+seqtk (https://github.com/lh3/seqtk)
+picardtools (https://github.com/broadinstitute/picard)
+cap3(http://seq.cs.iastate.edu/cap3.html)
+blast(ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/)
+bedtools(https://github.com/arq5x/bedtools2/releases/download/)
+
+for findprovirus_2
+SPAdes(http://cab.spbu.ru/software/spades/)
+bamUtil(https://github.com/statgen/bamUtil)
+
+
+Preparing the input files
+------------------------------------------------------------------------------------------------------------
+
+
+To generate the catalogue of solo LTR and proviral elements of a particular family the tool
+One Code to Find them All (Bailly-Bechet et al. 2014) is used. The script called rename_mergedLTRelementsdotpl is used to identify the boundaries of element and provide a unique name to each copy.
+
+Typical Usage: perl rename_mergedLTRelements.pl -f file that needs to renamed -ltr name of ltr=length of LTR -int name of internalsequence -ilen length of internal sequence -rn name that you would like give [-v version] [-c change log] [-h help]
+
+	MANDATORY ARGUMENT:
+    -f,--file          	(STRING) file
+    -ltr,--ltrname     	(STRING) Name of the ltr that needs to be rejoined=length of the ltr that can be classified as soloLTR (~5-10 bp length less than consensus length) 
+								e.g. -ltr MER66C=550 -ltr MER66B=481 -ltr MER66D=479
+	-int,--intname  	(STRING) Name of the internal erv sequence that needs to be rejoined
+	-ilen,--lenint		(STRING) length of the total internal sequence that can be classified as complete (~5-10 bp length less than consensus length)
+    -rn,--rename		(STRING) the name that you would like to give to the element (eg. HERVH or HERVW or HERV17)
+    
+    OPTIONAL ARGUMENTS:
+    -o,--out    		(STRING) name of the output file
+    -c,--chlog  		(BOOL)   Print updates
+    -v,--v      		(BOOL)   Print version if only option
+    -s,--verbose		(BOOL)   The script will talk to you
+    -h,--help    		(BOOL)   Print this usage
+    
+Output: A bed format file will be generated cordinates and with a unique name stating whether its a solo LTR or a 2 LTR provirus
+Create a text file containing only solo LTRs by using the command 'grep' "soloLTR" and create a text file containing only 2 LTR provirus by using grep "2LTR".
+To create a input file for the next two scripts by adding the sample IDs to be tested should be added as the first column. The script called makelist.pl provided in the util folder can be used.
+parallel can be used to speed up the script, findprovirus_1.pl.
+
+The input file needs split to multiple files and script called 'splitfile_for_parallel.pl'can be used for that.  
+
+Questions
+------------------------------------------------------------------------------------------------------------
+Please contact Jainy Thomas (jainyt@genetics.utah.edu) for questions or support.

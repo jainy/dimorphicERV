@@ -120,16 +120,16 @@ die $usage if ((! $pfile) || !($table) || !($path) ||($help));
 #$path = $cwd if (!$path);
 $out = "$path/Refined.prediction_alleles.txt" if (! $out);
 
-#check if the following tools are installed and the right path is given
-my $seqtkpro = "/home/jainy/software/seqtk";#vader server
-my $picardpro = "/home/jainy/software/picard-2.9.2";#vader server
-my $CAP3pro = "/home/jainy/software/CAP3";#vader server
-my $BLASTpro = "/home/jainy/software/ncbi-blast-2.6.0+/bin";#vader server
-#my $bamlocation = "/kbod2/WGS_DATA/SGDP_bams_public";#vaderserver
-my $SPAdepro = "/home/jainy/software/SPAdes-3.11.1-Linux/bin";#vaderserver,Yodaserver
-#my $bamUtilpro = "/home/jainy/software/bamUtil_1.0.13/bamUtil/bin";#vaderserver
-my $bamUtilpro = "/home/jainy/software/bamUtil";#Yodaserver installed github version
-my $bedtoolspro = "/home/jainy/software/bedtools2/bin";#vaderserver,Yodaserver
+#The user has to add the path
+my $seqtkpro = "/home/jainy/software/seqtk";
+my $picardpro = "/home/jainy/software/picard-2.9.2";
+my $CAP3pro = "/home/jainy/software/CAP3";
+my $BLASTpro = "/home/jainy/software/ncbi-blast-2.6.0+/bin";
+#my $bamlocation = "/kbod2/WGS_DATA/SGDP_bams_public";
+my $SPAdepro = "/home/jainy/software/SPAdes-3.11.1-Linux/bin";
+#my $bamUtilpro = "/home/jainy/software/bamUtil_1.0.13/bamUtil/bin";
+my $bamUtilpro = "/home/jainy/software/bamUtil";
+my $bedtoolspro = "/home/jainy/software/bedtools2/bin";
 my $miniapro = "/home/jainy/software/minia-v2.0.7-Source/build/bin";
 #-----------------------------------------------------------------------------
 #----------------------------------- MAIN ------------------------------------
