@@ -20,11 +20,11 @@ Typical Usage: perl rename_mergedLTRelements.pl -f file that needs to renamed -l
     -rn,--rename		(STRING) the name that you would like to give to the element (eg. HERVH or HERVW or HERV17)
     
     OPTIONAL ARGUMENTS:
-    -o,--out			(STRING) name of the output file
+    -o,--out    		(STRING) name of the output file
     -c,--chlog  		(BOOL)   Print updates
     -v,--v      		(BOOL)   Print version if only option
     -s,--verbose		(BOOL)   The script will talk to you
-    -h,--help			(BOOL)   Print this usage
+    -h,--help    		(BOOL)   Print this usage
     
 Output: A bed format file will be generated cordinates and with a unique name stating whether its a solo LTR or a 2 LTR provirus
 Create a text file containing only solo LTRs by using grep "soloLTR" and create a text file containing only 2 LTR provirus by using grep "2LTR".
@@ -55,13 +55,13 @@ Typical Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinate
     -e,--reads  		(BOOL)   extraction and assembling of reads 
     -m --mapscores 		(BOOL) 	 Need to calculate mappability scores	
     -db --mysqldbinfo 	(STRING) database=jainys_db, (needs to prepare before running script)   
-    -u --user 			(STRING) Username for mysql database,(needs to prepare before running script) 
+    -u --user    		(STRING) Username for mysql database,(needs to prepare before running script) 
     -pd,--password 		(STRING) password for mysql database,(needs to prepare before running script) 
     -mt,--mysqltable	(STRING) mysql table containing mappability scores (needs to prepare before running script)  
     -c,--chlog  		(BOOL)   Print updates
     -v,--v      		(BOOL)   Print version if only option
     -s,--verbose		(BOOL)   The script will talk to you
-    -h,--help			(BOOL)   Print this usage
+    -h,--help    		(BOOL)   Print this usage
 
 
 Output:The predictions are in the *.prediction_alleles.txt 
@@ -73,7 +73,7 @@ if you want to try an alternate assembler the following script is recommended to
 Typical Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file from the first run -p path of the outputdirectory -bl location of bamfiles[-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
-    -t,--table 		(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
+    -t,--table   	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
     -f,--file   	(STRING) output from findprovirus_1 script (*.prediction_alleles.txt)
     -p,--path   	(STRING) output directory name (path where extracted reads, mapped reads, extracted genomic sequences are found)	  
     -bl,--bamloc	(STRING) location of bam files
@@ -82,7 +82,7 @@ Typical Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file 
     -c,--chlog  	(BOOL)   Print updates
     -v,--v      	(BOOL)   Print version if only option
     -s,--verbose	(BOOL)   The script will talk to you
-    -h,--help		(BOOL)   Print this usage
+    -h,--help  		(BOOL)   Print this usage
 
 Output: The output is in Refine.prediction_alleles.txt. Reports if able to assemble solo LTR allele using an alternate assembler.
 
@@ -93,8 +93,8 @@ Find provirus to solo LTR variants using findsoloLTR pipeline.
 Typical Usage:perl findsoloLTR.pl -t table -f file with ltr cordinates -bl location of bamfiles [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p path of the outputdirectory][-o output file] [-v] [-c] [-h] 
 	
     MANDATORY ARGUMENT:
-    -t,--table			(STRING) file with first column needs to be the sampleIDs, second column BAMIDs
-    -f,--file			(STRING) file containing cordinates of solo LTR (sampleID, chr, start, end (of solo LTR),unique identifier,length,strand ) 
+    -t,--table  		(STRING) file with first column needs to be the sampleIDs, second column BAMIDs
+    -f,--file   		(STRING) file containing cordinates of solo LTR (sampleID, chr, start, end (of solo LTR),unique identifier,length,strand ) 
     -bl,--bamlocation 	(STRING) location of bam files
       	  
     OPTIONAL ARGUMENTS:
