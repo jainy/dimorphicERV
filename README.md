@@ -7,7 +7,10 @@ from whole genome resequencing paired-end data aligned to the reference genome.
 Both pipeline requires the start and end cordinates of solo LTR or proviral copies of the HERV family.
 
 To generate the catalogue of solo LTR and proviral elements of a particular family the tool
-One Code to Find them All (Bailly-Bechet et al. 2014) is used. The script called rename_mergedLTRelementsdotpl is used to identify the boundaries of element and provide a unique name to each copy. 
+One Code to Find them All (Bailly-Bechet et al. 2014) is used. The script called rename_mergedLTRelementsdotpl is used to identify the boundaries of element and provide a unique name to each copy.Output: A bed format file will be generated cordinates and with a unique name stating whether its a solo LTR or a 2 LTR provirus
+Create a text file containing only solo LTRs by using grep "soloLTR" and create a text file containing only 2 LTR provirus by using grep "2LTR".
+Create a input file for the next two scripts by adding the sample IDs to be tested as the first column.
+
 Typical Usage "perl rename_mergedLTRelements.pl -f <file that needs to renamed> -ltr <name of ltr=length of LTR> -int <name of internalsequence> -ilen <length of internalsequence> -rn <name that you would like give> [-v version] [-c change log] [-h help]"
 
 	MANDATORY ARGUMENT:
@@ -24,9 +27,9 @@ Typical Usage "perl rename_mergedLTRelements.pl -f <file that needs to renamed> 
     -v,--v      (BOOL)   Print version if only option
     -s,--verbose(BOOL)   The script will talk to you
     -h,--help>  (BOOL)   Print this usage\n\n"
-Output:
-A bed format file will be generated cordinates and with a unique name stating whether its a solo LTR or a 2 LTR provirus
-Create a text file containing only solo LTRs by using grep "soloLTR" and create a text file containing only 2 LTR provirus by using grep "2LTR" 
+
+
+ 
 ------------------------------------------------------------------------------------------------------------
 Step 2: Find solo-LTR to provirus variants using findprovirus pipeline.
 
@@ -59,30 +62,33 @@ Typical Usage: perl findprovirus_1.pl -t <BAM ID table> -f <file with ltr cordin
     -h,--help>  		(BOOL)   Print this usage\n\n"
 
 
-Output:The predictions are in the *.prediction_alleles.txt      
-
+Output:The predictions are in the *.prediction_alleles.txt 
+Note: parallel can be used to speed up this step. The input file can be split to multiple files. Then parallel is used when running the above command.     
+------------------------------------------------------------------------------------------------------------
 if you want to try an alternate assembler the following script is recommended to run.
 
-Typical Usage: perl findprovirus_2.pl -t <BAM ID table> -f <prediction output file from the first run> -p <path of the outputdirectory>[-v] [-c] [-h] [-s]
+
+Typical Usage: perl findprovirus_2.pl -t <BAM ID table> -f <prediction output file from the first run> -p <path of the outputdirectory> -bl <location of bamfiles>[-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
     -t,--table 	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
-    -f,--file   (STRING) output containing genotype prediction from part1
+    -f,--file   (STRING) output containing genotype prediction
     -p,--path   (STRING) output directory name (path where extracted reads, mapped reads, extracted genomic sequences are found)	  
+    -bl,--bamloc(STRING) location of bam files
     
     OPTIONAL ARGUMENTS:  
-    
     -c,--chlog  	(BOOL)   Print updates
     -v,--v      	(BOOL)   Print version if only option
     -s,--verbose	(BOOL)   The script will talk to you
-    -h,--help>  	(BOOL)   Print this usage\n\n";
-Output: Reports if able to assemble solo LTR allele
+    -h,--help>  	(BOOL)   Print this usage
+
+Output: The output is in Refine.prediction_alleles.txt. Reports if able to assemble solo LTR allele using an alternate assembler.
 ------------------------------------------------------------------------------------------------------------
 findsoloLTR pipeline
 
-Find provirus to solo-LTR variants using findsoloLTR pipeline.
+Find provirus to solo LTR variants using findsoloLTR pipeline.
 
-Typical Usage:perl $scriptname -t <table> -f <file with ltr cordinates> [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p <path of the outputdirectory>][-o <output file>] [-v] [-c] [-h] 
+Typical Usage:perl findsoloLTR.pl -t <table> -f <file with ltr cordinates> [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p <path of the outputdirectory>][-o <output file>] [-v] [-c] [-h] 
 	
     MANDATORY ARGUMENT:	
     -t,--table (string) file contain accession information first column needs to be the IDs, second column BAMIDs
@@ -104,4 +110,7 @@ Typical Usage:perl $scriptname -t <table> -f <file with ltr cordinates> [-m yes 
     -c,--chlog  (BOOL)   Print updates
     -v,--v      (BOOL)   Print version if only option
     -s,--verbose(BOOL)   The script will talk to you
-    -h,--help>  (BOOL)   Print this usage\n\n";
+    -h,--help  (BOOL)   Print this usage
+
+Output: The output is *.readdepth.output.txt.  
+
