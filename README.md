@@ -57,7 +57,7 @@ Typical Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinate
     -db --mysqldbinfo 	(STRING) database=jainys_db, (needs to prepare before running script)   
     -u --user 			(STRING) Username for mysql database,(needs to prepare before running script) 
     -pd,--password 		(STRING) password for mysql database,(needs to prepare before running script) 
-    -mt,--mysqltable    (STRING) mysql table containing mappability scores (needs to prepare before running script)  
+    -mt,--mysqltable	(STRING) mysql table containing mappability scores (needs to prepare before running script)  
     -c,--chlog  		(BOOL)   Print updates
     -v,--v      		(BOOL)   Print version if only option
     -s,--verbose		(BOOL)   The script will talk to you
