@@ -43,7 +43,7 @@ Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinates -bl lo
 Output:The predictions are in the *.prediction_alleles.txt 
    
 
-if you want to try an alternate assembler the following script is recommended to run.
+if you want to try an alternate assembler the following script is recommended to run on the output from first.
 
 Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file from the first run -p path of the outputdirectory -bl location of bamfiles[-v] [-c] [-h] [-s]
 	
