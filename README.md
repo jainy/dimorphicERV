@@ -9,7 +9,7 @@ Both pipeline requires the start and end cordinates of solo LTR or proviral copi
 To generate the catalogue of solo LTR and proviral elements of a particular family the tool
 One Code to Find them All (Bailly-Bechet et al. 2014) is used. The script called rename_mergedLTRelementsdotpl is used to identify the boundaries of element and provide a unique name to each copy.
 
-Typical Usage "perl rename_mergedLTRelements.pl -f file that needs to renamed -ltr name of ltr=length of LTR -int name of internalsequence -ilen length of internalsequence -rn name that you would like give [-v version] [-c change log] [-h help]"
+Typical Usage: perl rename_mergedLTRelements.pl -f file that needs to renamed -ltr name of ltr=length of LTR -int name of internalsequence -ilen length of internal sequence -rn name that you would like give [-v version] [-c change log] [-h help]
 
 	MANDATORY ARGUMENT:
     -f,--file          	(STRING) file
@@ -24,7 +24,7 @@ Typical Usage "perl rename_mergedLTRelements.pl -f file that needs to renamed -l
     -c,--chlog  		(BOOL)   Print updates
     -v,--v      		(BOOL)   Print version if only option
     -s,--verbose		(BOOL)   The script will talk to you
-    -h,--help  			(BOOL)   Print this usage
+    -h,--help			(BOOL)   Print this usage
     
 Output: A bed format file will be generated cordinates and with a unique name stating whether its a solo LTR or a 2 LTR provirus
 Create a text file containing only solo LTRs by using grep "soloLTR" and create a text file containing only 2 LTR provirus by using grep "2LTR".
