@@ -111,7 +111,9 @@ Preparing the input files
 
 
 To generate the catalogue of solo LTR and proviral elements of a particular family the tool
-One Code to Find them All (Bailly-Bechet et al. 2014) is used. The script called rename_mergedLTRelementsdotpl is used to identify the boundaries of element and provide a unique name to each copy.
+One Code to Find Them All (Bailly-Bechet et al. 2014) is used.
+ 
+1. Identify the boundaries of element and provide a unique name to each copy by running the script called rename_mergedLTRelementsdotpl on the output of One Code to Find Them All.
 
 Typical Usage: perl rename_mergedLTRelements.pl -f file that needs to renamed -ltr name of ltr=length of LTR -int name of internalsequence -ilen length of internal sequence -rn name that you would like give [-v version] [-c change log] [-h help]
 
@@ -131,11 +133,9 @@ Typical Usage: perl rename_mergedLTRelements.pl -f file that needs to renamed -l
     -h,--help    		(BOOL)   Print this usage
     
 Output: A bed format file will be generated cordinates and with a unique name stating whether its a solo LTR or a 2 LTR provirus
-Create a text file containing only solo LTRs by using the command 'grep' "soloLTR" and create a text file containing only 2 LTR provirus by using grep "2LTR".
-To create a input file for the next two scripts by adding the sample IDs to be tested should be added as the first column. The script called makelist.pl provided in the util folder can be used.
-parallel can be used to speed up the script, findprovirus_1.pl.
-
-The input file needs split to multiple files and script called 'splitfile_for_parallel.pl'can be used for that.  
+2. Use the command 'grep' "soloLTR" and "2LTR" to create two text files containing solo LTRs and provirus
+3. To add the sample IDs that need to be tested as the first column, makelist.pl provided in the util folder is used.
+4. To split the above file to multiple files to use parallel and script called 'splitfile_for_parallel.pl' is used.  'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) is used to speed up the script, findprovirus_1.pl.  
 
 Questions
 ------------------------------------------------------------------------------------------------------------
