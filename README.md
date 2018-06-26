@@ -48,7 +48,7 @@ Typical Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinate
     -p,--path   		(STRING) output directory name (path)
                          	 	 Default = current working directory
     -te,--teseq 		(STRING) consensus internal sequence of the provirus 
-    -g,	--genome		(STRING) path of the genome
+    -g,--genome   		(STRING) path of the genome
     -rd,--readepth  	(BOOL)   read depth analysis
     -x, --extract   	(BOOL)	 extract genomic sequence               
     -i,--igv    		(BOOL)   only IGV has to be run
