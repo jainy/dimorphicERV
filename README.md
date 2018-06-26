@@ -101,15 +101,15 @@ Typical Usage:perl findsoloLTR.pl -t table -f file with ltr cordinates -bl locat
     -m, --mappability  	(STRING) yes if need to find mappability 
     -mt,--table 		(STRING) mysql table e.g.	hg19wgEncodeCrgMapabilityAlign100mer_index/wgEncodeCrgMapabilityAlign100merhg38_lo_index
     -p,--path         	(STRING) output directory name (path) Default = current working directory
-    -db, --mysqldbinfo 	(STRING) ex. jainys_db
-    -u, --user 			(STRING) Username for mysql databasemy e.g	jainy;
-    -pd,--password 		(STRING) password for mysql database e.g. wysql123
-    -o,--output 		(STRING) output file
-    -i,--igv    		(BOOL)   get IGV files for the regions with 250 bp flank
-    -c,--chlog  		(BOOL)   Print updates
-    -v,--v      		(BOOL)   Print version if only option
+    -db, --mysqldbinfo	(STRING) ex. jainys_db
+    -u, --user			(STRING) Username for mysql databasemy e.g	jainy;
+    -pd,--password		(STRING) password for mysql database e.g. wysql123
+    -o,--output			(STRING) output file
+    -i,--igv			(BOOL)   get IGV files for the regions with 250 bp flank
+    -c,--chlog			(BOOL)   Print updates
+    -v,--v				(BOOL)   Print version if only option
     -s,--verbose		(BOOL)   The script will talk to you
-    -h,--help  			(BOOL)   Print this usage
+    -h,--help			(BOOL)   Print this usage
 
 Output: The output is *.readdepth.output.txt.  
 
