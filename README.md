@@ -28,6 +28,8 @@ Typical Usage "perl rename_mergedLTRelements.pl -f file that needs to renamed -l
 Output: A bed format file will be generated cordinates and with a unique name stating whether its a solo LTR or a 2 LTR provirus
 Create a text file containing only solo LTRs by using grep "soloLTR" and create a text file containing only 2 LTR provirus by using grep "2LTR".
 Create a input file for the next two scripts by adding the sample IDs to be tested as the first column.
+
+
 findprovirus pipeline
 ------------------------------------------------------------------------------------------------------------
 Find solo-LTR to provirus variants using findprovirus pipeline.
