@@ -84,29 +84,29 @@ my $changelog = "
 \n";
 
 my $usage = "\nUsage [$version]: 
-    perl $scriptname -t <BAM ID table> -f <prediction output file from the first run> -p <path of the outputdirectory>[-v] [-c] [-h] [-s]
+    perl $scriptname -t <BAM ID table> -f <prediction output file from the first run> -p <path of the outputdirectory> -bl <location of bamfiles>[-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
     -t,--table 	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
     -f,--file   (STRING) output containing genotype prediction
     -p,--path   (STRING) output directory name (path where extracted reads, mapped reads, extracted genomic sequences are found)	  
+    -bl,--bamloc(STRING) location of bam files
     
     OPTIONAL ARGUMENTS:  
-    
     -c,--chlog  	(BOOL)   Print updates
     -v,--v      	(BOOL)   Print version if only option
     -s,--verbose	(BOOL)   The script will talk to you
     -h,--help>  	(BOOL)   Print this usage\n\n";
    
-   
 #-----------------------------------------------------------------------------
 #------------------------------ LOAD AND CHECK -------------------------------
 #-----------------------------------------------------------------------------
-my ($pfile,$table,$path,$out,$verbose,$help,$v,$chlog);
+my ($pfile,$table,$path,$out,$bamlocation,$verbose,$help,$v,$chlog);
 GetOptions ('t=s' => \$table,
             'f=s' => \$pfile,            
             'p=s' => \$path,
             'o=s' => \$out,
+            'bl=s'=> \$bamlocation,
             'c'   => \$chlog, 
             'h'   => \$help,
             's'   => \$verbose, 
@@ -125,7 +125,7 @@ my $seqtkpro = "/home/jainy/software/seqtk";#vader server
 my $picardpro = "/home/jainy/software/picard-2.9.2";#vader server
 my $CAP3pro = "/home/jainy/software/CAP3";#vader server
 my $BLASTpro = "/home/jainy/software/ncbi-blast-2.6.0+/bin";#vader server
-my $bamlocation = "/kbod2/WGS_DATA/SGDP_bams_public";#vaderserver
+#my $bamlocation = "/kbod2/WGS_DATA/SGDP_bams_public";#vaderserver
 my $SPAdepro = "/home/jainy/software/SPAdes-3.11.1-Linux/bin";#vaderserver,Yodaserver
 #my $bamUtilpro = "/home/jainy/software/bamUtil_1.0.13/bamUtil/bin";#vaderserver
 my $bamUtilpro = "/home/jainy/software/bamUtil";#Yodaserver installed github version
