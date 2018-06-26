@@ -11,7 +11,7 @@ One Code to Find them All (Bailly-Bechet et al. 2014) is used. The script called
 Create a text file containing only solo LTRs by using grep "soloLTR" and create a text file containing only 2 LTR provirus by using grep "2LTR".
 Create a input file for the next two scripts by adding the sample IDs to be tested as the first column.
 
-Typical Usage "perl rename_mergedLTRelements.pl -f <file that needs to renamed> -ltr <name of ltr=length of LTR> -int <name of internalsequence> -ilen <length of internalsequence> -rn <name that you would like give> [-v version] [-c change log] [-h help]"
+Typical Usage "perl rename_mergedLTRelements.pl -f file that needs to renamed -ltr name of ltr=length of LTR -int name of internalsequence -ilen length of internalsequence -rn name that you would like give [-v version] [-c change log] [-h help]"
 
 	MANDATORY ARGUMENT:
     -f,   	--file          	(STRING) file
@@ -26,14 +26,14 @@ Typical Usage "perl rename_mergedLTRelements.pl -f <file that needs to renamed> 
     -c,--chlog  (BOOL)   Print updates
     -v,--v      (BOOL)   Print version if only option
     -s,--verbose(BOOL)   The script will talk to you
-    -h,--help>  (BOOL)   Print this usage\n\n"
+    -h,--help  (BOOL)   Print this usage\n\n"
 
 findprovirus pipeline
 ------------------------------------------------------------------------------------------------------------
 Find solo-LTR to provirus variants using findprovirus pipeline.
 
 Need to generate a mysql (mariadb) database and an indexed table if need to obtain the mappability scores.
-Typical Usage: perl findprovirus_1.pl -t <BAM ID table> -f <file with ltr cordinates> -bl <location of bamfiles> -b [-p <path of the outputdirectory>][-g <path of the genome>][-m mapscores][-te <TEseq>][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
+Typical Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinates -bl location of bamfiles -b [-p path of the outputdirectory][-g path of the genome][-m mapscores][-te TEseq][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
     -t,--table 	      	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
@@ -43,7 +43,7 @@ Typical Usage: perl findprovirus_1.pl -t <BAM ID table> -f <file with ltr cordin
     
     OPTIONAL ARGUMENTS:  
     -p,--path   		(STRING) output directory name (path)
-                         	 	 Default = <current working directory>
+                         	 	 Default = current working directory
     -te,--teseq 		(STRING) consensus internal sequence of the provirus 
     -g,	--genome		(STRING) path of the genome
     -rd,--readepth  	(BOOL)   read depth analysis
@@ -58,7 +58,7 @@ Typical Usage: perl findprovirus_1.pl -t <BAM ID table> -f <file with ltr cordin
     -c,--chlog  		(BOOL)   Print updates
     -v,--v      		(BOOL)   Print version if only option
     -s,--verbose		(BOOL)   The script will talk to you
-    -h,--help>  		(BOOL)   Print this usage\n\n"
+    -h,--help  		(BOOL)   Print this usage\n\n"
 
 
 Output:The predictions are in the *.prediction_alleles.txt 
@@ -67,7 +67,7 @@ Note: parallel can be used to speed up this step. The input file can be split to
 if you want to try an alternate assembler the following script is recommended to run.
 
 
-Typical Usage: perl findprovirus_2.pl -t <BAM ID table> -f <prediction output file from the first run> -p <path of the outputdirectory> -bl <location of bamfiles>[-v] [-c] [-h] [-s]
+Typical Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file from the first run -p path of the outputdirectory -bl location of bamfiles[-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
     -t,--table 	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
@@ -79,7 +79,7 @@ Typical Usage: perl findprovirus_2.pl -t <BAM ID table> -f <prediction output fi
     -c,--chlog  	(BOOL)   Print updates
     -v,--v      	(BOOL)   Print version if only option
     -s,--verbose	(BOOL)   The script will talk to you
-    -h,--help>  	(BOOL)   Print this usage
+    -h,--help  	(BOOL)   Print this usage
 
 Output: The output is in Refine.prediction_alleles.txt. Reports if able to assemble solo LTR allele using an alternate assembler.
 
@@ -87,7 +87,7 @@ findsoloLTR pipeline
 ------------------------------------------------------------------------------------------------------------
 Find provirus to solo LTR variants using findsoloLTR pipeline.
 
-Typical Usage:perl findsoloLTR.pl -t <table> -f <file with ltr cordinates> [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p <path of the outputdirectory>][-o <output file>] [-v] [-c] [-h] 
+Typical Usage:perl findsoloLTR.pl -t table -f file with ltr cordinates [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p path of the outputdirectory][-o output file] [-v] [-c] [-h] 
 	
     MANDATORY ARGUMENT:	
     -t,--table (string) file contain accession information first column needs to be the IDs, second column BAMIDs
@@ -98,12 +98,12 @@ Typical Usage:perl findsoloLTR.pl -t <table> -f <file with ltr cordinates> [-m y
     -mt,--table 		(STRING) mysql table e.g.	hg19wgEncodeCrgMapabilityAlign100mer_index
     												wgEncodeCrgMapabilityAlign100merhg38_lo_index
     -p,--path         	(STRING) output directory name (path)
-                            	 Default = <current working directory>
+                            	 Default = current working directory
     -db --mysqldbinfo 	(STRING) ex. command: DBI:mysql:database=jainys_db;host=localhost;port=22;     
     -u --user 			(STRING) Username for mysql databasemy e.g	jainy;
     -pd,--password 		(STRING) password for mysql database e.g. wysql123
     -p,--path   (STRING) output directory name (path)
-                         Default = <current working directory>
+                         Default = current working directory
     -o,--output (STRING) output file
     -i,--igv    (BOOL)   get IGV files for the regions with 250 bp flank
     -c,--chlog  (BOOL)   Print updates
