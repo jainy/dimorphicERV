@@ -133,9 +133,10 @@ Typical Usage: perl rename_mergedLTRelements.pl -f file that needs to renamed -l
     -h,--help    		(BOOL)   Print this usage
     
 Output: A bed format file will be generated cordinates and with a unique name stating whether its a solo LTR or a 2 LTR provirus
+
 2. Use the command 'grep' "soloLTR" and "2LTR" to create two text files containing solo LTRs and provirus
 3. To add the sample IDs that need to be tested as the first column, makelist.pl provided in the util folder is used.
-4. To split the above file to multiple files to use parallel and script called 'splitfile_for_parallel.pl' is used.  'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) is used to speed up the script, findprovirus_1.pl.  
+4. To split the output file from makelist.pl to multiple files script called 'splitfile_for_parallel.pl' is used.  'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) is used run on mulitple input files to speed up the script, findprovirus_1.pl.  
 
 Questions
 ------------------------------------------------------------------------------------------------------------
