@@ -131,7 +131,7 @@ my $usage = "\nUsage [$version]:
     -c,--chlog  		(BOOL)   Print updates
     -v,--v      		(BOOL)   Print version if only option
     -s,--verbose		(BOOL)   The script will talk to you
-    -h,--help>  		(BOOL)   Print this usage\n\n";
+    -h,--help   		(BOOL)   Print this usage\n\n";
    
    
 #-----------------------------------------------------------------------------
