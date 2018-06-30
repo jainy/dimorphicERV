@@ -9,7 +9,7 @@ Both pipeline requires the start and end cordinates of solo LTR or proviral copi
 
 findprovirus pipeline
 ------------------------------------------------------------------------------------------------------------
-Find solo-LTR to provirus variants using findprovirus pipeline.
+This pipeline helps to identify solo-LTR to provirus variants.
 
 Need to generate an indexed mysql table of the mappability scores for the genome if need to obtain the mappability scores of HERV regions as part of the script.
 
