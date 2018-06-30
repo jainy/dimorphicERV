@@ -176,7 +176,7 @@ my $BLASTpro = "/home/jainy/software/ncbi-blast-2.6.0+/bin";
 #my $bamlocation = "/kbod2/WGS_DATA/SGDP_bams_public";
 my $bedtoolspro = "/home/jainy/software/bedtools2/bin";
 #only if mappability scores are calculated, my sql table needs to be constructed and indexed prior to running script
-my $mysqltable = "wgEncodeCrgMapabilityAlign100merhg38_lo_index";
+#my $mysqltable = "wgEncodeCrgMapabilityAlign100merhg38_lo_index";
 
 
 #-----------------------------------------------------------------------------
