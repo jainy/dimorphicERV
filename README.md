@@ -90,6 +90,14 @@ Usage:perl findsoloLTR.pl -t table -f file with ltr cordinates -bl location of b
     -h,--help   		(BOOL)   Print this usage
 
 Output: The output is *.readdepth.output.txt. 
+Sample output
+name    5'Read_depth    element_Read_depth      3'Read_depth    predicted_genotype      %Read_depth     gmap_score_avg.weightedavg
+B_Australian-3.HERVH_chr3_2ltr_int_fr_1189.chr3:70434672-70440419       40.28   42.04   34.84   2       111.92  5747=>0.189,6.525
+B_Australian-3.HERVH_chr3_2ltr_int_fr_1191.chr3:72023126-72028900       49.64   41.84   40.85   2       92.47   5774=>0.194,3.867
+B_Australian-3.HERVH_chr3_2ltr_int_fr_1193.chr3:75469906-75475683       33.59   40.08   44.19   2       103.06  5777=>0.236,8.169
+B_Australian-3.HERVH_chr3_2ltr_int_fr_1197.chr3:78581212-78588919       37.12   22.64   56.08   1       48.58   7707=>0.135,2.494
+B_Australian-3.HERVH_chr3_2ltr_int_fr_1202.chr3:8177031-8182716 35.94   31.30   42.01   2       80.31   5685=>0.164,3.066
+B_Australian-3.HERVH_chr3_2ltr_int_fr_1207.chr3:84187812-84193404       35.43   40.49   37.81   2       110.56  5592=>0.459,35.265
 
 Requirements
 ------------------------------------------------------------------------------------------------------------
