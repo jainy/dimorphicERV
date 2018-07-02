@@ -68,7 +68,7 @@ findsoloLTR pipeline
 ------------------------------------------------------------------------------------------------------------
 This pipeline identifies provirus to solo LTR variants.
 
-Usage:perl findsoloLTR.pl -t table -f file with ltr cordinates -bl location of bamfiles [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p path of the outputdirectory][-o output file] [-v] [-c] [-h] 
+Usage:perl findsoloLTR.pl -t table -f file with ltr cordinates -bl location of bamfiles [-m] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p path of the outputdirectory][-o output file] [-v] [-c] [-h] 
 	
     MANDATORY ARGUMENT:
     -t,--table  		(STRING) file with first column needs to be the sampleIDs, second column BAMIDs
@@ -76,7 +76,7 @@ Usage:perl findsoloLTR.pl -t table -f file with ltr cordinates -bl location of b
     -bl,--bamlocation 	(STRING) location of bam files
       	  
     OPTIONAL ARGUMENTS:
-    -m, --mappability  	(STRING) yes if need to find mappability 
+    -m, --mappability  	(BOOL)  if need to find mappability 
     -mt,--table 		(STRING) mysql table e.g.	hg19wgEncodeCrgMapabilityAlign100mer_index/wgEncodeCrgMapabilityAlign100merhg38_lo_index
     -p,--path         	(STRING) output directory name (path) Default = current working directory
     -db, --mysqldbinfo	(STRING) ex. jainys_db
