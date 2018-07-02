@@ -39,7 +39,7 @@ my $usage = "\nUsage [$version]:
     -bl,--bamlocation (STRING) location of bam files
     	  
     OPTIONAL ARGUMENTS:
-    -m, --mappability  (STRING)  yes if need to find mappability 
+    -m, --mappability  (STRING)  yes if need to find mappability; no if not needed
     -mt,--table 		(STRING) mysql table e.g.	hg19wgEncodeCrgMapabilityAlign100mer_index
     												wgEncodeCrgMapabilityAlign100merhg38_lo_index
     -p,--path         	(STRING) output directory name (path)
@@ -64,7 +64,7 @@ GetOptions ('f=s' => \$file,
             'p=s' => \$path,
             'o=s' => \$rawout,
             't=s' => \$table,
-            'm=s' => \$mappability,
+            'm'   => \$mappability,
             'bl=s'=> \$bamlocation,
             'mt=s'=> \$mysqltable,
             'db=s'=> \$mysqldb,
@@ -109,7 +109,7 @@ my $dbh;
 
 %bamfile = load_file ($table);
 
-if ($mappability eq 'yes') {
+if ($mappability) {
 	
 	my $dsn = "DBI:mysql:database=$mysqldb;host=localhost;port=22";
 	$dbh = DBI->connect($dsn, $user, $password,
@@ -131,8 +131,8 @@ open (my $fh, "<", $file) or confess "\n ERROR (main): could not open to read $f
 		my $threepstart = $col[3] + 3;
 		$IGVloc = $chr.":".$fivepstart."-".$threepend;
 		$elegenomeloc = $chr.":".$elestart."-".$eleend;
-		my $avgscore = &store_mapscores($elegenomeloc) if ($mappability eq 'yes');
-		my $gmscore = $length."=>".$avgscore if ($mappability eq 'yes');
+		my $avgscore = &store_mapscores($elegenomeloc) if ($mappability);
+		my $gmscore = $length."=>".$avgscore if ($mappability);
 		$fivepgenomeloc = $chr.":".$fivepstart."-".$fivepend;
 		$threepgenomeloc = $chr.":".$threepstart."-".$threepend;
 		my $tetype = $col[4];
@@ -223,7 +223,11 @@ sub get_IGV {
 
 sub print_hash {
 	open (my $fhout,">","$rawout") || die ("cannot open file $rawout to write $!\n");
-	print $fhout "name\t5'Read_depth\telement_Read_depth\t3'Read_depth\tpredicted_genotype\t%Read_depth\tgmap_score_avg.weightedavg\n" ;
+	if ($mappability) {
+		print $fhout "name\t5'Read_depth\telement_Read_depth\t3'Read_depth\tpredicted_genotype\t%Read_depth\tgmap_score_avg.weightedavg\n" ;
+	} else {
+		print $fhout "name\t5'Read_depth\telement_Read_depth\t3'Read_depth\tpredicted_genotype\t%Read_depth\n" ;
+	}
 	foreach my $name (sort keys %allreaddepth) {
 		#print "$name\n";
 		my $fivepratio;
@@ -243,7 +247,7 @@ sub print_hash {
 				$fivepratio = ${$hash_ref}{$type} if ($type eq '5pflank');
 				$threepratio = ${$hash_ref}{$type} if ($type eq '3pflank');
 				$elementratio = ${$hash_ref}{$type} if ($type eq 'element');
-				if ($mappability eq 'yes') {
+				if ($mappability) {
 					$gmapscore = ${$hash_ref}{$type} if ($type eq 'gmscore') ;
 				}
 			}
@@ -251,7 +255,7 @@ sub print_hash {
 		if (($fivepratio == 0) && ($threepratio == 0) && ($elementratio == 0)) {
 			$predigenoty = "2";
 			$diffratio = "undef";
-			if ($mappability eq 'yes') {
+			if ($mappability) {
 				print $fhout "$name\t$fivepratio\t$elementratio\t$threepratio\t$predigenoty\t$diffratio\t$gmapscore\n";
 			} else {
 				print $fhout "$name\t$fivepratio\t$elementratio\t$threepratio\t$predigenoty\t$diffratio\n";	
@@ -281,7 +285,7 @@ sub print_hash {
 				$threepratio = sprintf("%.2f",$threepratio);
 				$elementratio = sprintf("%.2f",$elementratio);
 				$diffratio = sprintf("%.2f",$diffratio) if ($diffratio ne "undef");
-				if ($mappability eq 'yes') {
+				if ($mappability) {
 					print $fhout "$name\t$fivepratio\t$elementratio\t$threepratio\t$predigenoty\t$diffratio\t$gmapscore\n" ;
 				} else {
 					print $fhout "$name\t$fivepratio\t$elementratio\t$threepratio\t$predigenoty\t$diffratio\n" ;
