@@ -389,10 +389,10 @@ sub extractgmscores_mysql {
 	return ($twoscore);	
 }
 sub email {
-	my $to = 'jainythomas1@gmail.com';
+	my $to = 'jainyt@genetics.utah.edu';
 	my $cc = 'jainyt@genetics.utah.edu';
-	my $from = 'jainy@vader.genetics.utah.edu';
-	my $subject = 'solo LTR locator ';
+	my $from = 'jainy@yoda.genetics.utah.edu';
+	my $subject = 'findsoloLTR output ';
 	my $message = "Results are ready for $path/$file";
 
 	my $msg = MIME::Lite->new(From     => $from,
