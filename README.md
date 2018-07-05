@@ -139,7 +139,7 @@ Output: A bed format file will be generated cordinates and with a unique name st
 
 3. Use the command 'grep' "soloLTR" and "2LTR" to create two text files containing solo LTRs and provirus
 4. To add the sample IDs that need to be tested as the first column, makelist.pl provided in the util folder is used.
-5. To speed up the script, findprovirus_1.plTo, the output file from makelist.pl is split to multiple files using a script called 'splitfile_for_parallel.pl'.  Using 'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) multiple jobs are launched.  
+5. To speed up the script, findprovirus_1.pl, the output file from makelist.pl is split to multiple files using  called 'splitfile_for_parallel.pl' (provided in the util folder).  Using 'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) multiple jobs are launched.  
 
 Questions
 ------------------------------------------------------------------------------------------------------------
