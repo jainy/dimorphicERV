@@ -58,7 +58,7 @@ Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file from the
     -c,--chlog  	(BOOL)   Print updates
     -v,--v      	(BOOL)   Print version if only option
     -s,--verbose	(BOOL)   The script will talk to you
-    -h,--help  		(BOOL)   Print this usage
+    -h,--help  	(BOOL)   Print this usage
 
 Output: The output is Refine.prediction_alleles.txt. Reports if able to assemble solo LTR allele using an alternate assembler.
 
