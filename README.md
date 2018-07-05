@@ -1,8 +1,8 @@
 # dimorphicERV
 
 DimorphicERV is the integrated name of two pipelines called findprovirus and findsoloLTR. 
-These pipelines are used to identify proviral deletions resulting from LTR recombination events
-from whole genome resequencing paired-end data aligned to the reference genome. 
+These pipelines identify proviral deletions resulting from LTR recombination events
+using whole genome resequencing paired-end data aligned to the reference genome. 
 
 Both pipeline requires the start and end cordinates of solo LTR or proviral copies of the HERV family.
 
@@ -11,9 +11,9 @@ findprovirus pipeline
 ------------------------------------------------------------------------------------------------------------
 This pipeline helps to identify solo-LTR to provirus variants.
 
-Need to generate an indexed mysql table of the mappability scores for the genome if need to obtain the mappability scores of HERV regions as part of the script.
+Inorder to obtain the mappability scores of HERV regions, an indexed mysql table of the mappability scores for the genome has to be generated. The script uses the data from the table to calculate the mappability scores of the regions where discordant reads are mapped.
 
-Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinates -bl location of bamfiles -b [-p path of the outputdirectory][-g path of the genome][-m mapscores][-te TEseq][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
+Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinates -bl location of bamfiles -b [-p path of the outputdirectory][-g path of the genome][-te TEseq][-m ][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
 	-t,--table 	      	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
