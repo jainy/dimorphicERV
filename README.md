@@ -51,7 +51,7 @@ Output:The predictions are in the *.prediction_alleles.txt
 	Col 6: Predicted genotype
 	Col 7: Predicted uncertain allele if any
 	Col 8: Average mappability score
-	Col 9: cordinates where discordant reads are mapped and their average mappability score
+	Col 9: Cordinates of non-overlapping regions where discordant reads are mapped and the respective average mappability scores
 
 
    
