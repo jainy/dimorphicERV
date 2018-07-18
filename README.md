@@ -42,6 +42,18 @@ Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinates -bl lo
 
 
 Output:The predictions are in the *.prediction_alleles.txt 
+
+	Col 1: HERV name, location and individual name
+	Col 2: Total number of discordant reads identified
+	Col 3: Number of discordants reads whose mates have significant homology with the internal sequence of provirus
+	Col 4: Percent of the de novo assembled contig aligned to reference solo LTR allele (best hit when using BLAST)
+	Col 5: Ration of average read depth at the solo LTR to the average of read depths of all solo LTRs
+	Col 6: Predicted genotype
+	Col 7: Predicted uncertain allele if any
+	Col 8: Average mappability score
+	Col 9: cordinates where discordant reads are mapped and their average mappability score
+
+
    
 
 if you want to try an alternate assembler, the following script is recommended to run on the output from first (*.prediction_alleles.txt).
@@ -91,6 +103,13 @@ Usage:perl findsoloLTR.pl -t table -f file with ltr cordinates -bl location of b
 
 Output: The output is *.readdepth.output.txt. 
 
+	Col 1: HERV name, location and individual name
+	Col 2: Average Read depth at 5' 250 bp
+	Col 3: Average Read depth across the HERV
+	Col 4: Average Read depth at 3' 250 bp
+	Col 5: Predicted genotype (2 (two provirus alleles), 1 (1 provirus and 1 solo LTR), 0 (two solo LTR alleles))
+	Col 6: Percent Read depth  (Read depth at the HERV/(Average of Read depth at flanks))*100
+	Col 7: Mappability score at the provirus region, length of the provirus => average score and weighted score where score is mulitplied by its corresponding length
 	
 
 Requirements
