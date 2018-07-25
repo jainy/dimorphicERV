@@ -27,7 +27,7 @@ Inorder to obtain the mappability scores of HERV regions, an indexed mysql table
     -te,--teseq 		(STRING) consensus internal sequence of the provirus 
     -g,--genome   		(STRING) path of the genome
     -rd,--readepth  	(BOOL)   read depth analysis
-    -x,--extract   	(BOOL)	 extract genomic sequence               
+    -x,--extract    	(BOOL)	 extract genomic sequence               
     -i,--igv    		(BOOL)   only IGV has to be run
     -e,--reads  		(BOOL)   extraction and assembling of reads 
     -m,--mapscores 		(BOOL) 	 Need to calculate mappability scores	
