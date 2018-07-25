@@ -132,7 +132,7 @@ Preparing the input files
 ------------------------------------------------------------------------------------------------------------
 
 
-1.To generate the catalogue of solo LTR and proviral elements of a particular family the tool
+1. To generate the catalogue of solo LTR and proviral elements of a particular family the tool
 One Code to Find Them All (Bailly-Bechet et al. 2014) is used on the repeatmasker output.
  
 2. The output of One Code to Find Them All is parsed to identify the boundaries of each copy and provide a unique name to each copy using rename_mergedLTRelements.pl (see utils folder).
