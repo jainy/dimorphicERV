@@ -1,10 +1,10 @@
-# dimorphicERV
+# dimorphic ERV
 
-DimorphicERV is the integrated name of two pipelines called findprovirus and findsoloLTR. 
-These pipelines identify proviral deletions resulting from LTR recombination events
-using whole genome resequencing paired-end data aligned to the reference genome. 
+This repository contains scripts called findprovirus and findsoloLTR to  
+identify proviral deletions resulting from LTR recombination events. 
 
-Both pipeline require the start and end cordinates of solo LTR or proviral copies of the HERV family.
+
+Findprovirus require the start and end cordinates of solo LTR and findsoloLTR requires the coordinates of proviral copies of the HERV family and use whole genome resequencing paired-end data aligned to the reference genome.
 
 
 findprovirus pipeline
