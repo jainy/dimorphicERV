@@ -1,13 +1,12 @@
 # dimorphic ERV
 
-This repository contains scripts called findprovirus and findsoloLTR to  
-identify proviral deletions resulting from LTR recombination events. 
+This repository contains scripts to identify proviral deletions resulting from LTR recombination events. 
 
 
-Findprovirus require the start and end cordinates of solo LTR and findsoloLTR requires the coordinates of proviral copies of the HERV family and use whole genome resequencing paired-end data aligned to the reference genome.
+Findprovirus require the start and end cordinates of solo LTR and findsoloLTR requires the start and end coordinates of proviral copies of the HERV family and both use whole genome resequencing paired-end data aligned to the reference genome.
 
 
-findprovirus pipeline
+findprovirus 
 ------------------------------------------------------------------------------------------------------------
 This pipeline helps to identify solo-LTR to provirus variants.
 
@@ -76,7 +75,7 @@ Output: The output is Refine.prediction_alleles.txt. Reports if able to assemble
 
 
 
-findsoloLTR pipeline
+findsoloLTR 
 ------------------------------------------------------------------------------------------------------------
 This pipeline identifies provirus to solo LTR variants.
 
