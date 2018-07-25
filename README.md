@@ -30,7 +30,7 @@ Inorder to obtain the mappability scores of HERV regions, an indexed mysql table
     -x,--extract    	(BOOL)	 extract genomic sequence               
     -i,--igv    		(BOOL)   to run only IGV
     -e,--reads  		(BOOL)   extraction and assembling of reads 
-    -m,--mapscores 		(BOOL) 	 need to calculate mappability scores	
+    -m,--mapscores 		(BOOL) 	 to calculate mappability scores	
     -db,--mysqldbinfo 	(STRING) database=jainys_db, (needs to prepare before running script)   
     -u,--user    		(STRING) username for mysql database,(needs to prepare before running script) 
     -pd,--password 		(STRING) password for mysql database,(needs to prepare before running script) 
@@ -88,7 +88,7 @@ This pipeline identifies provirus to solo LTR variants.
     -bl,--bamlocation 	(STRING) location of bam files
       	  
     OPTIONAL ARGUMENTS:
-    -m,--mappability  	(BOOL)  if need to find mappability 
+    -m,--mappability  	(BOOL)  to find mappability scores 
     -mt,--table 		(STRING) mysql table e.g.	hg19wgEncodeCrgMapabilityAlign100mer_index/wgEncodeCrgMapabilityAlign100merhg38_lo_index
     -p,--path         	(STRING) output directory name (path) Default = current working directory
     -db,--mysqldbinfo	(STRING) ex. jainys_db
