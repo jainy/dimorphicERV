@@ -88,7 +88,7 @@ This pipeline identifies provirus to solo LTR variants.
     -bl,--bamlocation 	(STRING) location of bam files
       	  
     OPTIONAL ARGUMENTS:
-    -m,--mappability  	(BOOL)  to find mappability scores 
+    -m,--mappability  	(BOOL)   to find mappability scores 
     -mt,--table 		(STRING) mysql table e.g.	hg19wgEncodeCrgMapabilityAlign100mer_index/wgEncodeCrgMapabilityAlign100merhg38_lo_index
     -p,--path         	(STRING) output directory name (path) Default = current working directory
     -db,--mysqldbinfo	(STRING) ex. jainys_db
