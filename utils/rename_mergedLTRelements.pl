@@ -12,7 +12,7 @@ use Carp;
 use Getopt::Long;
 use Data::Dumper;
 
-my $version = "4.0";
+my $version = "5.0";
 my $scriptname = "rename_mergedLTRelements.pl";
 my $changelog = "
 #   - v1.0 = 22 May 2017 
@@ -53,7 +53,7 @@ my $usage = "\nUsage [$version]:
 my ($file,$out,%ltrname,$intname,$intlen,$rename,$help,$v,$chlog);
 GetOptions ('f=s'   => \$file,
             'o=s'   => \$out,
-            'ltr=s' => \%ltrname,#takes multiple key=values
+            'ltr=s' => \%ltrname,
             'int=s' => \$intname,
             'ilen=s'=> \$intlen,
             'rn=s'  => \$rename,	
