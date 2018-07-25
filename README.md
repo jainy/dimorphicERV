@@ -41,7 +41,7 @@ Inorder to obtain the mappability scores of HERV regions, an indexed mysql table
     -h,--help    		(BOOL)   Print this usage
 
 
-Output:The predictions are in the *.prediction_alleles.txt 
+Output: The predictions are in the *.prediction_alleles.txt 
 
 	Col 1: HERV name, location and individual name
 	Col 2: Total number of discordant reads identified
@@ -80,7 +80,7 @@ findsoloLTR pipeline
 ------------------------------------------------------------------------------------------------------------
 This pipeline identifies provirus to solo LTR variants.
 
-Usage:perl findsoloLTR.pl -t table -f file with ltr cordinates -bl location of bamfiles [-m] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p path of the outputdirectory][-o output file] [-v] [-c] [-h] 
+	Usage: perl findsoloLTR.pl -t table -f file with ltr cordinates -bl location of bamfiles [-m] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p path of the outputdirectory][-o output file] [-v] [-c] [-h] 
 	
     MANDATORY ARGUMENT:
     -t,--table  		(STRING) file with first column needs to be the sampleIDs, second column BAMIDs
