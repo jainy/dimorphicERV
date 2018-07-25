@@ -90,7 +90,7 @@ This pipeline identifies provirus to solo LTR variants.
     -m,--mappability  	(BOOL)   to find mappability scores 
     -mt,--table 		(STRING) mysql table e.g.	hg19wgEncodeCrgMapabilityAlign100mer_index/wgEncodeCrgMapabilityAlign100merhg38_lo_index
     -p,--path         	(STRING) output directory name (path) Default = current working directory
-    -db,--mysqldbinfo	(STRING) ex. jainys_db
+    -db,--mysqldbinfo	(STRING) e.g. jainys_db
     -u,--user  		(STRING) username for mysql databasemy e.g	jainy;
     -pd,--password		(STRING) password for mysql database e.g. wysql123
     -o,--output  		(STRING) output file
@@ -144,7 +144,7 @@ One Code to Find Them All (Bailly-Bechet et al. 2014) is used on the repeatmaske
 									e.g. -ltr MER66C=550 -ltr MER66B=481 -ltr MER66D=479
 		-int,--intname  	(STRING) name of the internal erv sequence that needs to be rejoined
 		-ilen,--lenint		(STRING) length of the total internal sequence that can be classified as complete (~5-10 bp length less than consensus length)
-	    -rn,--rename		(STRING) the name that you would like to give to the element (eg. HERVH or HERVW or HERV17)
+	    -rn,--rename		(STRING) the name that you would like to give to the element (e.g. HERVH or HERVW or HERV17)
 
 	    OPTIONAL ARGUMENTS:
 	    -o,--out    		(STRING) name of the output file
