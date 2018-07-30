@@ -3,7 +3,7 @@
 This repository contains scripts to identify proviral deletions resulting from LTR recombination events. 
 
 
-Findprovirus require the start and end cordinates of solo LTR and findsoloLTR requires the start and end coordinates of proviral copies of a HERV family in the reference genome and both scripts use whole genome resequencing paired-end data aligned to the reference genome.
+Findprovirus require the start and end cordinates of solo LTR copies and findsoloLTR requires the start and end coordinates of proviral copies of a HERV family in the reference genome and both scripts use whole genome resequencing paired-end data aligned to the reference genome (bam files).
 
 
 findprovirus 
