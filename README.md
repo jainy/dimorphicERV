@@ -113,7 +113,7 @@ Output: The output is *.readdepth.output.txt.
 
 Requirements
 ------------------------------------------------------------------------------------------------------------
-These are required for running findprovirus_1 and findsoloLTR scripts. These softwares has to be installed and the location has to be added to the script
+The following tools are required for running findprovirus_1 and findsoloLTR scripts. These softwares has to be installed and the location has to be added in the script
 
 samtools (http://www.htslib.org/)
 seqtk (https://github.com/lh3/seqtk)
