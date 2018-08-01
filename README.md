@@ -46,7 +46,7 @@ Output: The predictions are in the *.prediction_alleles.txt
 	Col 2: Total number of discordant reads identified
 	Col 3: Number of discordants reads whose mates have significant homology with the internal sequence of provirus
 	Col 4: Percent of the de novo assembled contig aligned to reference solo LTR allele (best hit when using BLAST)
-	Col 5: Ration of average read depth at the solo LTR to the average of read depths of all solo LTRs
+	Col 5: Ratio of average read depth at the solo LTR to the average of read depths of all solo LTRs
 	Col 6: Predicted genotype (S for solo LTR, P for Provirus)
 	Col 7: Allele for which the prediction is not well-supported
 	Col 8: Average mappability score
@@ -153,11 +153,12 @@ One Code to Find Them All (Bailly-Bechet et al. 2014) is used on the repeatmaske
 	    -s,--verbose		(BOOL)   the script will talk to you
 	    -h,--help    		(BOOL)   print this usage
     
-Output: A bed format file will be generated cordinates and with a unique name stating whether its a solo LTR or a 2 LTR provirus
+Output: A bed format file containing cordinates and a unique name stating whether its a solo LTR or a 2 LTR provirus
 
 3. Use the command 'grep' "soloLTR" and "2LTR" to create two text files containing solo LTRs and provirus
-4. To add the sample IDs that need to be tested as the first column, makelist.pl provided in the util folder is used.
-5. To speed up the script, findprovirus_1.pl, the output file from makelist.pl is split to multiple files using  called 'splitfile_for_parallel.pl' (provided in the util folder).  Using 'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) multiple jobs are launched.  
+4. To add the genome IDs that need to be tested as the first column, use the script called makelist.pl provided in the util folder.
+5. To speed up the script, findprovirus_1.pl, the output file from makelist.pl is split to multiple files using the script called 'splitfile_for_parallel.pl' (provided in the util folder).  Using 'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) multiple jobs are launched.
+
 
 Questions
 ------------------------------------------------------------------------------------------------------------
