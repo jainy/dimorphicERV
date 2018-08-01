@@ -29,11 +29,11 @@ Inorder to obtain the mappability scores of HERV regions, an indexed mysql table
     -x,--extract    	(BOOL)	 extract genomic sequence               
     -i,--igv    		(BOOL)   to run only IGV
     -e,--reads  		(BOOL)   extraction and assembling of reads 
-    -m,--mapscores 		(BOOL) 	 to calculate mappability scores	
-    -db,--mysqldbinfo 	(STRING) database=jainys_db, (needs to prepare before running script)   
-    -u,--user    		(STRING) username for mysql database,(needs to prepare before running script) 
-    -pd,--password 		(STRING) password for mysql database,(needs to prepare before running script) 
-    -mt,--mysqltable	(STRING) mysql table containing mappability scores (needs to prepare before running script)  
+    -m,--mapscores 		(BOOL) 	 to calculate mappability scores and options (-db, -u, -pd, -mt) required	
+    -db,--mysqldbinfo 	(STRING) mysql/mariadb database eg. jainys_db, (has to prepare before running script)   
+    -u,--user    		(STRING) username for mysql database,(has to prepare before running script) 
+    -pd,--password 		(STRING) password for mysql database,(has to prepare before running script) 
+    -mt,--mysqltable	(STRING) mysql table containing mappability scores (has to prepare before running script)  
     -c,--chlog  		(BOOL)   print updates
     -v,--v      		(BOOL)   print version if only option
     -s,--verbose		(BOOL)   the script will talk to you
