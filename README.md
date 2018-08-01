@@ -29,7 +29,7 @@ Inorder to obtain the mappability scores of HERV regions, an indexed mysql table
     -x,--extract    	(BOOL)	 extract genomic sequence               
     -i,--igv    		(BOOL)   to run only IGV
     -e,--reads  		(BOOL)   extraction and assembling of reads 
-    -m,--mapscores 		(BOOL) 	 to calculate mappability scores and options (-db, -u, -pd, -mt) required	
+    -m,--mapscores 		(BOOL) 	 to calculate mappability scores (options -db, -u, -pd, -mt are required)	
     -db,--mysqldbinfo 	(STRING) mysql/mariadb database eg. jainys_db, (has to prepare before running script)   
     -u,--user    		(STRING) username for mysql database,(has to prepare before running script) 
     -pd,--password 		(STRING) password for mysql database,(has to prepare before running script) 
@@ -87,12 +87,12 @@ This pipeline identifies provirus to solo LTR variants.
     -bl,--bamlocation 	(STRING) location of bam files
       	  
     OPTIONAL ARGUMENTS:
-    -m,--mappability  	(BOOL)   to find mappability scores 
-    -mt,--table 		(STRING) mysql table e.g.	hg19wgEncodeCrgMapabilityAlign100mer_index/wgEncodeCrgMapabilityAlign100merhg38_lo_index
+    -m,--mappability  	(BOOL)   to find mappability scores (options -db, -u, -pd, -mt are required)
+    -mt,--table 		(STRING) mysql table e.g. wgEncodeCrgMapabilityAlign100merhg38_lo_index
     -p,--path         	(STRING) output directory name (path) Default = current working directory
-    -db,--mysqldbinfo	(STRING) e.g. jainys_db
-    -u,--user  		(STRING) username for mysql databasemy e.g	jainy;
-    -pd,--password		(STRING) password for mysql database e.g. wysql123
+    -db,--mysqldbinfo	(STRING) name of database
+    -u,--user  		(STRING) username for mysql databasemy;
+    -pd,--password		(STRING) password for mysql database
     -o,--output  		(STRING) output file
     -i,--igv    		(BOOL)   get IGV files for the regions with 250 bp flank
     -c,--chlog  		(BOOL)   print updates
