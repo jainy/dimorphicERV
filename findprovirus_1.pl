@@ -22,7 +22,7 @@ use List::MoreUtils qw(firstidx);
 use DBI;
 
 my $version = "18.0_part1";
-my $scriptname = "findprovirus.v18.0_forHERV_part1_bed_format.pl";
+my $scriptname = "findprovirus_1.pl";
 my $changelog = "
 #   - v1.0 = 16 Jan 2017 
 #	- v2.0 = 24 Jan 2017
@@ -106,7 +106,7 @@ my $changelog = "
 \n";
 
 my $usage = "\nUsage [$version]: 
-    perl $scriptname -t <BAM ID table> -f <file with ltr cordinates> -bl <location of bamfiles> [-p <path of the outputdirectory>][-g <path of the genome>][-m mapscores][-te <TEseq>][-u Username] [-pd password][-db mysql database][-mt mysql table][-b] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
+    perl $scriptname -t <BAM ID table> -f <file with ltr cordinates> -bl <location of bamfiles> [-p <path of the outputdirectory>][-g <path of the genome>][-m mapscores][-te <TEseq>][-u Username] [-pd password][-db mysql database][-mt mysql table][-b] [-i] [-e] [-rd] [-x] [-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
     -t,--table 	      (STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
@@ -150,7 +150,7 @@ GetOptions ('t=s' => \$table,
             'e'   => \$reads,
             'b'   => \$both,
             'm'   => \$mapscores,	
-            'mt=s' => \$mysqltable,
+            'mt=s'=> \$mysqltable,
             'db=s'=> \$mysqldb,
             'u=s' => \$user,
             'pd=s'=> \$password,
