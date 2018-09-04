@@ -113,8 +113,9 @@ Output: The output is *.readdepth.output.txt.
 
 Installation and Requirements
 ------------------------------------------------------------------------------------------------------------
-git clone https://github.com/jainy/dimorphicERV
-cd dimorphicERV
+	git clone https://github.com/jainy/dimorphicERV
+	cd dimorphicERV
+	
 The path of the following tools need to be added to the scripts.
 
 
