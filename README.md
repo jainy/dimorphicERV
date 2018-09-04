@@ -111,8 +111,13 @@ Output: The output is *.readdepth.output.txt.
 	Col 7: Mappability score at the provirus region, length of the provirus => average score and weighted score where score is mulitplied by its corresponding length
 	
 
-Requirements
+Installation and Requirements
 ------------------------------------------------------------------------------------------------------------
+git clone https://github.com/jainy/dimorphicERV
+cd dimorphicERV
+The path of the following tools need to be added to the scripts.
+
+
 The following tools are required for running findprovirus_1 and findsoloLTR scripts. These softwares has to be installed and the location has to be added in the script
 
 samtools (http://www.htslib.org/)
