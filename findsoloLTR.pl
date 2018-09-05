@@ -13,7 +13,7 @@ use Getopt::Long;
 use File::Path qw(make_path remove_tree);
 use Cwd;
 use Data::Dumper;
-use MIME::Lite;
+#use MIME::Lite;
 use DBI;
 
 
@@ -161,7 +161,7 @@ if (@logvalues) {
 	print STDERR "Please check logfile for values for which no read depth was calculated...\n";
 	&print_array($logfile,@logvalues);
 }
-&email;
+#&email;
 exit;
 #-----------------------------------------------------------------------------
 #----------------------------------- SUB -------------------------------------
