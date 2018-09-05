@@ -12,13 +12,18 @@ This pipeline helps to identify solo-LTR to provirus variants.
 
 Inorder to obtain the mappability scores of HERV regions, an indexed mysql table of the mappability scores for the genome has to be generated. The script uses the data from the table to calculate the mappability scores of the regions where discordant reads are mapped.
 
-	Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinates -bl location of bamfiles -b [-p path of the outputdirectory][-g path of the genome][-te TEseq][-m ][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
+	Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinates -bl location of bamfiles -b -st seqtk path -pc picardtools path -cp cap3 path -bp blast path -bd bedtools [-p path of the outputdirectory][-g path of the genome][-te TEseq][-m ][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
-	-t,--table 	      	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
-    -f,--file         	(STRING) file containing cordinates of solo LTR (sampleID, chr, start, end (of solo LTR),unique identifier,length,strand ) 
-    -bl,--bamlocation 	(STRING) location of bam files  
-    -b,--both   		(BOOL)   run extraction and assembly with sliced bam file for viewing IGV
+	-t,--table		(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
+    -f,--file		(STRING) file containing cordinates of solo LTR (sampleID, chr, start, end (of solo LTR),unique identifier,length,strand ) 
+    -bl,--bamlocat		(STRING) location of bam files  
+    -b,--both		(BOOL)   run extraction and assembly with sliced bam file for viewing IGV
+    -st,--seqtkpro		(STRING) path of seqtk
+    -pc,--picard		(STRING) path of picardtools
+    -cp,--cap3		(STRING) path of cap3 assembler
+    -bp,--blast		(STRING) path of blast 
+    -bd,--bedtools		(STRING) path of bedtools
     
     OPTIONAL ARGUMENTS:  
     -p,--path   		(STRING) output directory name (path)
@@ -57,19 +62,27 @@ Output: The predictions are in the *.prediction_alleles.txt
 
 if you want to try an alternate assembler, the following script is recommended to run on the output from first (*.prediction_alleles.txt).
 
-	Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file from the first run -p path of the outputdirectory -bl location of bamfiles[-v] [-c] [-h] [-s]
+	Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file from the first run -p path of the outputdirectory -bl location of bamfiles -st seqtk path -bu bamutils path -sp spade path -mp minia path -cp cap3 path -bp blast path -bd bedtools[-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
-    -t,--table   	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
-    -f,--file   	(STRING) output from findprovirus_1 script (*.prediction_alleles.txt)
-    -p,--path   	(STRING) output directory name (path where extracted reads, mapped reads, extracted genomic sequences are found from the previous run)	  
-    -bl,--bamloc	(STRING) location of bam files
+    -t,--table		(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
+    -f,--file		(STRING) output from findprovirus_1 script (*.prediction_alleles.txt)
+    -p,--path		(STRING) output directory name (path where extracted reads, mapped reads, extracted genomic sequences are found from the previous run)	  
+    -bl,--bamlocatn		(STRING) location of bam files
+    -st,--seqtkpro		(STRING) path of seqtk
+    -cp,--cap3		(STRING) path of cap3 assembler
+    -bp,--blast		(STRING) path of blast 
+    -bd,--bedtools		(STRING) path of bedtools
+    -bu,--bamutils		(STRING) path of bamutils
+    -sp,--spade		(STRING) path of spade
+    -mp,--minia		(STRING) path of minia assembler
     
+       
     OPTIONAL ARGUMENTS:  
     -c,--chlog  	(BOOL)   print updates
     -v,--v      	(BOOL)   print version if only option
     -s,--verbose	(BOOL)   the script will talk to you
-    -h,--help  	(BOOL)   print this usage
+    -h,--help	(BOOL)   print this usage
 
 Output: The output is Refine.prediction_alleles.txt. Reports if able to assemble solo LTR allele using an alternate assembler.
 
@@ -111,9 +124,13 @@ Output: The output is *.readdepth.output.txt.
 	Col 7: Mappability score at the provirus region, length of the provirus => average score and weighted score where score is mulitplied by its corresponding length
 	
 
-Requirements
+Installation and Requirements
 ------------------------------------------------------------------------------------------------------------
-The following tools are required for running findprovirus_1 and findsoloLTR scripts. These softwares has to be installed and the location has to be added in the script
+	git clone https://github.com/jainy/dimorphicERV
+	cd dimorphicERV
+	
+
+The following tools are required for running findprovirus_1 and findsoloLTR scripts. These softwares has to be installed  and the paths needs to be added to the command line
 
 samtools (http://www.htslib.org/)
 seqtk (https://github.com/lh3/seqtk)

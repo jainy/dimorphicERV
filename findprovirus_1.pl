@@ -14,7 +14,7 @@ use Cwd;
 use Bio::SearchIO; 
 use Bio::SeqIO;
 use Bio::DB::Fasta;	
-use MIME::Lite;
+#use MIME::Lite; to send email when done
 use Data::Dumper;
 use File::Copy;
 use List::MoreUtils qw(uniq);
@@ -493,7 +493,7 @@ open ($fh, "<", $file) or confess "\n ERROR (main): could not open to read $file
 print_array($nodisreadidlist,@nodisreads);
 print_array($noreadsidlist,@noreadsregion);
 print_array($nodisreadswithERVs,@nodisreadswithERV);
-&email();
+#&email();need to uncomment MIME::Lite module
 close $fh;
 # Disconnect from the database.
 $dbh->disconnect();
