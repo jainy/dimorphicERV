@@ -15,9 +15,9 @@ Inorder to obtain the mappability scores of HERV regions, an indexed mysql table
 	Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinates -bl location of bamfiles -b -st seqtk path -pc picardtools path -cp cap3 path -bp blast path -bd bedtools [-p path of the outputdirectory][-g path of the genome][-te TEseq][-m ][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
-	-t,--table 	      	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
-    -f,--file         	(STRING) file containing cordinates of solo LTR (sampleID, chr, start, end (of solo LTR),unique identifier,length,strand ) 
-    -bl,--bamlocation 	(STRING) location of bam files  
+	-t,--table	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
+    -f,--file	(STRING) file containing cordinates of solo LTR (sampleID, chr, start, end (of solo LTR),unique identifier,length,strand ) 
+    -bl,--bamlocation	(STRING) location of bam files  
     -b,--both	(BOOL)   run extraction and assembly with sliced bam file for viewing IGV
     -st,--seqtkpro	(STRING) path of seqtk
     -pc,--picard	(STRING) path of picardtools
