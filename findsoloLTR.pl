@@ -193,7 +193,7 @@ sub avg_readdepth {
 	my $avg;
 	my $total = 0;
 	my $count = 0;
-	system("samtools depth -a -r $genomeloc -q 20 -Q 30 $bamlocation/$bamid.38.sorted.bam > $readdepthpath/$individual.$genomeloc.readdepth.txt") == 0 or die ("failed extract readdepth via samtools\n"); 
+	system("samtools depth -a -r $genomeloc -q 20 -Q 30 $bamlocation/$bamid > $readdepthpath/$individual.$genomeloc.readdepth.txt") == 0 or die ("failed extract readdepth via samtools\n"); 
 	my $readdepthfile = "$readdepthpath/$individual.$genomeloc.readdepth.txt";
 	my $size = (-s $readdepthfile);
 	if ($size == 0) {
@@ -215,7 +215,7 @@ sub avg_readdepth {
 }
 sub get_IGV {
 	make_path  ("$path/IGV/$individual");
-	system("samtools view -b -o $path/IGV/$individual/$uniqueid.bam $bamlocation/$bamid.38.sorted.bam $IGVloc") == 0 or die ("unable to run command on $uniqueid \n");
+	system("samtools view -b -o $path/IGV/$individual/$uniqueid.bam $bamlocation/$bamid $IGVloc") == 0 or die ("unable to run command on $uniqueid \n");
 	print STDERR " 	Extracting 	$uniqueid using samtools done\n" if ($verbose);
 	system ("samtools index -b $path/IGV/$individual/$uniqueid.bam ") == 0 or die ("unable to create index file of $uniqueid.bam \n");
 	print STDERR " indexing the bamfile done \n" if ($verbose) ;

@@ -288,7 +288,7 @@ open (my $fh, "<", $file) or confess "\n ERROR (main): could not open to read $f
 		make_path  ("$path/IGV/$individual")  if (($igv) || ($both));
 		make_path  ("$path/ExtractedReads/$individual") if (($reads) || ($both));
 		if (($igv) || ($both)) {	
-			system("samtools view -b -o $path/IGV/$individual/$uniqueid.bam $bamlocation/$bamid.38.sorted.bam $genomeloc") == 0 or die ("unable to run command on $uniqueid \n");
+			system("samtools view -b -o $path/IGV/$individual/$uniqueid.bam $bamlocation/$bamid $genomeloc") == 0 or die ("unable to run command on $uniqueid \n");
 			print STDERR " 	Extracting 	$uniqueid using samtools done\n" if ($verbose);
 			system ("samtools index -b $path/IGV/$individual/$uniqueid.bam ") == 0 or die ("unable to create index file of $uniqueid.bam \n");
 			print STDERR " indexing the bamfile done \n" if ($verbose) ;
@@ -298,7 +298,7 @@ open (my $fh, "<", $file) or confess "\n ERROR (main): could not open to read $f
 			##Extracting discordant reads
 			make_path  ("$path/Discordantreads/$individual");
 			#unless (-e "$path/Discordantreads/$individual/$uniqueid.dismapped.reads.fasta") {
-				system ("samtools view -b -q 30 -F 3854 $bamlocation/$bamid.38.sorted.bam $genomeloc > $path/Discordantreads/$individual/$uniqueid.discordantF3854.outfile.bam") == 0 or die ("unable to extract readsby F 3854 flag $!");
+				system ("samtools view -b -q 30 -F 3854 $bamlocation/$bamid $genomeloc > $path/Discordantreads/$individual/$uniqueid.discordantF3854.outfile.bam") == 0 or die ("unable to extract readsby F 3854 flag $!");
 				system ("samtools bam2fq $path/Discordantreads/$individual/$uniqueid.discordantF3854.outfile.bam | $seqtkpro/seqtk seq -A -q30 > $path/Discordantreads/$individual/$uniqueid.dismapped.reads.fasta") == 0 or die ("unable to convert discordant bam file  to fasta $uniqueid \n");
 				
 			#}
@@ -393,7 +393,7 @@ open ($fh, "<", $file) or confess "\n ERROR (main): could not open to read $file
 		my $dmatefile; 
 		if (($reads) || ($both)) {	
 			#extracting only the mapped reads
-			system("samtools view -b -q 30 -F 4 $bamlocation/$bamid.38.sorted.bam $genomeloc > $path/ExtractedReads/$ltr/$uniqueid.onlymappedreadIDs.bam ") == 0 or die ("unable to extract bam at $uniqueid \n");
+			system("samtools view -b -q 30 -F 4 $bamlocation/$bamid $genomeloc > $path/ExtractedReads/$ltr/$uniqueid.onlymappedreadIDs.bam ") == 0 or die ("unable to extract bam at $uniqueid \n");
 			system ("samtools bam2fq $path/ExtractedReads/$ltr/$uniqueid.onlymappedreadIDs.bam > $path/ExtractedReads/$ltr/$uniqueid.onlymappedreadIDs.fastq") == 0 or die ("unable to convert to fasta $uniqueid \n");
 			copy("$path/ExtractedReads/$ltr/$uniqueid.onlymappedreadIDs.fastq", "$path/MappedReads/$ltr/$uniqueid.onlymappedreadIDs.fastq") or die "Copy failed fastq $uniqueid:$!"; 
 			system ("$seqtkpro/seqtk seq -A -q30 $path/ExtractedReads/$ltr/$uniqueid.onlymappedreadIDs.fastq > $path/ExtractedReads/$ltr/$uniqueid.onlymappedreadIDs.fasta") == 0 or die ("unable to run seqtk on fastq $uniqueid \n");
@@ -605,7 +605,7 @@ sub extractreads_bam {
 		}
 		#extract reads using picard tools
 		unless (-e "$path/Allreadsforbam/$file/$allreadindi.allreadIDs.bam") {
-			system ("java -jar $picardpro/picard.jar FilterSamReads INPUT=$bamlocation/$bam_id.38.sorted.bam FILTER=includeReadList READ_LIST_FILE=$path/Allreadsforbam/$file/$allreadindi.allreadIDs.txt WRITE_READS_FILES=false OUTPUT=$path/Allreadsforbam/$file/$allreadindi.allreadIDs.bam") == 0 or die ("unable to run picard tools in $file on $allreadindi \n");
+			system ("java -jar $picardpro/picard.jar FilterSamReads INPUT=$bamlocation/$bam_id FILTER=includeReadList READ_LIST_FILE=$path/Allreadsforbam/$file/$allreadindi.allreadIDs.txt WRITE_READS_FILES=false OUTPUT=$path/Allreadsforbam/$file/$allreadindi.allreadIDs.bam") == 0 or die ("unable to run picard tools in $file on $allreadindi \n");
 			system ("samtools bam2fq $path/Allreadsforbam/$file/$allreadindi.allreadIDs.bam | $seqtkpro/seqtk seq -A -q30 > $path/Allreadsforbam/$file/$allreadindi.allreadIDs.fasta") == 0 or die ("unable to convert to fasta $allreadindi \n");
 
 		}
@@ -820,7 +820,7 @@ sub avg_readdepth {
 	my $avg;
 	my $total = 0;
 	my $count = 0;
-	system("samtools depth -a -r $genomelocatn -q 20 -Q 20 $bamlocation/$bamid.38.sorted.bam > $readdepthpath/$individual.$genomelocatn.readdepth.txt") == 0 or die ("failed extract readdepth via samtools\n"); 
+	system("samtools depth -a -r $genomelocatn -q 20 -Q 20 $bamlocation/$bamid > $readdepthpath/$individual.$genomelocatn.readdepth.txt") == 0 or die ("failed extract readdepth via samtools\n"); 
 	my $readdepthfile = "$readdepthpath/$individual.$genomelocatn.readdepth.txt";
 	my $size = (-s $readdepthfile);
 	if ($size == 0) {
