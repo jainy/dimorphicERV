@@ -129,10 +129,10 @@ my $usage = "\nUsage [$version]:
     -i,--igv    		(BOOL)   only IGV has to be run
     -e,--reads  		(BOOL)   run picard tools and cap3 for extracting and assembling reads 
     -m --mapscores 		(BOOL) 	 Need to calculate mappability scores	
-    -db --mysqldbinfo 	(STRING) database=jainys_db, (needs to prepare before running script)   
-    -u --user 			(STRING) Username for mysql database,(needs to prepare before running script) 
-    -pd,--password 		(STRING) password for mysql database,(needs to prepare before running script) 
-    -mt,--mysqltable    (STRING) mysql table containing mappability scores (needs to prepare before running script)  
+    -db --mysqldbinfo 	(STRING) name of mysql database (needs to prepare before running script) required if only calculating mappability scores   
+    -u --user 			(STRING) Username for mysql (needs to prepare before running script) required if only calculating mappability scores  
+    -pd,--password 		(STRING) password for mysql (needs to prepare before running script) required if only calculating mappability scores 
+    -mt,--mysqltable    (STRING) mysql table containing mappability scores (needs to prepare before running script)  required if only calculating mappability scores 
     -c,--chlog  		(BOOL)   Print updates
     -v,--v      		(BOOL)   Print version if only option
     -s,--verbose		(BOOL)   The script will talk to you
