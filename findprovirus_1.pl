@@ -113,7 +113,12 @@ my $usage = "\nUsage [$version]:
     -f,--file         (STRING) file containing cordinates of solo LTR (sampleID, chr, start, end (of solo LTR),unique identifier,length,strand ) 
     -bl,--bamlocation (STRING) location of bam files
     -b,--both   		(BOOL)   run extraction and assembly with sliced bam file for viewing IGV
-     
+    -st,--seqtkpro	  (STRING) path to the seqtk
+    -pc,--picard	  (STRING) path to the picardtools
+    -cp,--cap3		  (STRING) path to the cap3 assembler
+    -bp,--blast		  (STRING) path to the blast 
+    -bd,--bedtools	  (STRING) path to the bedtools 
+    
     OPTIONAL ARGUMENTS:  
     -p,--path   		(STRING) output directory name (path)
                          	 	 Default = <current working directory>
@@ -137,7 +142,7 @@ my $usage = "\nUsage [$version]:
 #-----------------------------------------------------------------------------
 #------------------------------ LOAD AND CHECK -------------------------------
 #-----------------------------------------------------------------------------
-my ($file,$table,$path,$teseq,$extract,$out,$igv,$reads,$readdepth,$both,$GENOME,$mapscores,$mysqltable,$mysqldb,$user,$password,$verbose,$bamlocation,$help,$v,$chlog);
+my ($file,$table,$path,$teseq,$extract,$out,$igv,$reads,$readdepth,$both,$GENOME,$mapscores,$mysqltable,$mysqldb,$user,$password,$verbose,$bamlocation,$seqtkpro,$picardpro,$BLASTpro,$CAP3pro,$bedtoolspro,$help,$v,$chlog);
 GetOptions ('t=s' => \$table,
             'f=s' => \$file,            
             'p=s' => \$path,
@@ -154,7 +159,12 @@ GetOptions ('t=s' => \$table,
             'db=s'=> \$mysqldb,
             'u=s' => \$user,
             'pd=s'=> \$password,
-            'bl=s'=> \$bamlocation, 
+            'bl=s'=> \$bamlocation,
+            'st=s'=> \$seqtkpro,
+            'pc=s'=> \$picardpro,
+            'cp=s'=> \$CAP3pro,
+            'bp=s'=> \$BLASTpro,
+            'bd=s'=> \$bedtoolspro,
             'c'   => \$chlog, 
             'h'   => \$help,
             's'   => \$verbose, 
@@ -169,12 +179,12 @@ $path = $cwd if (!$path);
 $out = "$path/$file.prediction_alleles.txt" if (! $out);
 
 #check if the following tools are installed and the right path is given
-my $seqtkpro = "/home/jainy/software/seqtk";
-my $picardpro = "/home/jainy/software/picard-2.9.2";
-my $CAP3pro = "/home/jainy/software/CAP3";
-my $BLASTpro = "/home/jainy/software/ncbi-blast-2.6.0+/bin";
+#my $seqtkpro = "/home/jainy/software/seqtk";
+#my $picardpro = "/home/jainy/software/picard-2.9.2";
+#my $CAP3pro = "/home/jainy/software/CAP3";
+#my $BLASTpro = "/home/jainy/software/ncbi-blast-2.6.0+/bin";
 #my $bamlocation = "/kbod2/WGS_DATA/SGDP_bams_public";
-my $bedtoolspro = "/home/jainy/software/bedtools2/bin";
+#my $bedtoolspro = "/home/jainy/software/bedtools2/bin";
 #only if mappability scores are calculated, my sql table needs to be constructed and indexed prior to running script
 #my $mysqltable = "wgEncodeCrgMapabilityAlign100merhg38_lo_index";
 

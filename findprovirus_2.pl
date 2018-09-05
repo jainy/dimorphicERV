@@ -87,10 +87,18 @@ my $usage = "\nUsage [$version]:
     perl $scriptname -t <BAM ID table> -f <prediction output file from the first run> -p <path of the outputdirectory> -bl <location of bamfiles>[-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
-    -t,--table 	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
-    -f,--file   (STRING) output containing genotype prediction
-    -p,--path   (STRING) output directory name (path where extracted reads, mapped reads, extracted genomic sequences are found)	  
-    -bl,--bamloc(STRING) location of bam files
+    -t,--table 		  (STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
+    -f,--file   	  (STRING) output containing genotype prediction
+    -p,--path   	  (STRING) output directory name (path where extracted reads, mapped reads, extracted genomic sequences are found)	  
+    -bl,--bamloc	  (STRING) location of bam files
+    -st,--seqtkpro	  (STRING) path to the seqtk
+    -pc,--picard	  (STRING) path to the picardtools
+    -cp,--cap3		  (STRING) path to the cap3 assembler
+    -bp,--blast		  (STRING) path to the blast 
+    -bd,--bedtools	  (STRING) path to the bedtools
+    -bu,--bamutils	  (STRING) path of bamutils
+    -sp,--spade		  (STRING) path of spade
+    -mp,--minia		  (STRING) path of minia assembler
     
     OPTIONAL ARGUMENTS:  
     -c,--chlog  	(BOOL)   Print updates
@@ -101,12 +109,19 @@ my $usage = "\nUsage [$version]:
 #-----------------------------------------------------------------------------
 #------------------------------ LOAD AND CHECK -------------------------------
 #-----------------------------------------------------------------------------
-my ($pfile,$table,$path,$out,$bamlocation,$verbose,$help,$v,$chlog);
+my ($pfile,$table,$path,$out,$bamlocation,$seqtkpro,$BLASTpro,$CAP3pro,$bedtoolspro,$bamUtilpro,$SPAdepro,$miniapro,$verbose,$help,$v,$chlog);
 GetOptions ('t=s' => \$table,
             'f=s' => \$pfile,            
             'p=s' => \$path,
             'o=s' => \$out,
             'bl=s'=> \$bamlocation,
+            'st=s'=> \$seqtkpro,
+            'cp=s'=> \$CAP3pro,
+            'bp=s'=> \$BLASTpro,
+            'bd=s'=> \$bedtoolspro,
+            'bu=s'=> \$bamUtilpro,
+            'sp=s'=> \$SPAdepro,
+            'mp=s'=> \$miniapro,
             'c'   => \$chlog, 
             'h'   => \$help,
             's'   => \$verbose, 
@@ -121,16 +136,16 @@ die $usage if ((! $pfile) || !($table) || !($path) ||($help));
 $out = "$path/Refined.prediction_alleles.txt" if (! $out);
 
 #The user has to add the path
-my $seqtkpro = "/home/jainy/software/seqtk";
-my $picardpro = "/home/jainy/software/picard-2.9.2";
-my $CAP3pro = "/home/jainy/software/CAP3";
-my $BLASTpro = "/home/jainy/software/ncbi-blast-2.6.0+/bin";
+#my $seqtkpro = "/home/jainy/software/seqtk";
+#my $picardpro = "/home/jainy/software/picard-2.9.2";
+#my $CAP3pro = "/home/jainy/software/CAP3";
+#my $BLASTpro = "/home/jainy/software/ncbi-blast-2.6.0+/bin";
 #my $bamlocation = "/kbod2/WGS_DATA/SGDP_bams_public";
-my $SPAdepro = "/home/jainy/software/SPAdes-3.11.1-Linux/bin";
+#my $SPAdepro = "/home/jainy/software/SPAdes-3.11.1-Linux/bin";
 #my $bamUtilpro = "/home/jainy/software/bamUtil_1.0.13/bamUtil/bin";
-my $bamUtilpro = "/home/jainy/software/bamUtil";
-my $bedtoolspro = "/home/jainy/software/bedtools2/bin";
-my $miniapro = "/home/jainy/software/minia-v2.0.7-Source/build/bin";
+#my $bamUtilpro = "/home/jainy/software/bamUtil";
+#my $bedtoolspro = "/home/jainy/software/bedtools2/bin";
+#my $miniapro = "/home/jainy/software/minia-v2.0.7-Source/build/bin";
 #-----------------------------------------------------------------------------
 #----------------------------------- MAIN ------------------------------------
 #-----------------------------------------------------------------------------
