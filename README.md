@@ -69,7 +69,16 @@ if you want to try an alternate assembler, the following script is recommended t
     -f,--file   	(STRING) output from findprovirus_1 script (*.prediction_alleles.txt)
     -p,--path   	(STRING) output directory name (path where extracted reads, mapped reads, extracted genomic sequences are found from the previous run)	  
     -bl,--bamloc	(STRING) location of bam files
+    -st,--seqtkpro		(STRING) path of seqtk
+    -pc,--picard		(STRING) path of picardtools
+    -cp,--cap3		(STRING) path of cap3 assembler
+    -bp,--blast		(STRING) path of blast 
+    -bd,--bedtools		(STRING) path of bedtools
+    -bu,--bamutils	  (STRING) path of bamutils
+    -sp,--spade		  (STRING) path of spade
+    -mp,--minia		  (STRING) path of minia assembler
     
+       
     OPTIONAL ARGUMENTS:  
     -c,--chlog  	(BOOL)   print updates
     -v,--v      	(BOOL)   print version if only option
