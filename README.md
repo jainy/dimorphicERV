@@ -79,10 +79,10 @@ if you want to try an alternate assembler, the following script is recommended t
     
        
     OPTIONAL ARGUMENTS:  
-    -c,--chlog  	(BOOL)   print updates
-    -v,--v      	(BOOL)   print version if only option
-    -s,--verbose	(BOOL)   the script will talk to you
-    -h,--help	(BOOL)   print this usage
+    -c,--chlog		(BOOL)   print updates
+    -v,--v		(BOOL)   print version if only option
+    -s,--verbose		(BOOL)   the script will talk to you
+    -h,--help		(BOOL)   print this usage
 
 Output: The output is Refine.prediction_alleles.txt. Reports if able to assemble solo LTR allele using an alternate assembler.
 
@@ -173,8 +173,15 @@ One Code to Find Them All (Bailly-Bechet et al. 2014) is used on the repeatmaske
 Output: A bed format file containing cordinates and a unique name stating whether its a solo LTR or a 2 LTR provirus
 
 3. Use the command 'grep' "soloLTR" and "2LTR" to create two text files containing solo LTRs and provirus
-4. To add the genome IDs that need to be tested as the first column, use the script called makelist.pl provided in the util folder.
-5. To speed up the script, findprovirus_1.pl, the output file from makelist.pl is split to multiple files using the script called 'splitfile_for_parallel.pl' (provided in the util folder).  Using 'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) multiple jobs are launched.
+4. To add the genome IDs that need to be tested as the first column to the above file containing coordinates of HERVs, use the script called makelist.pl provided in the util folder.
+5. Prepare a separate table with genome ID as the first column and second column as the name of the bam file separated by a tab (used for -t option for the findprovirus and findsoloLTR scripts)
+		example: 
+		B_Dinka-3       SS6004480.38.sorted.bam
+		B_Ju_hoan_North-4       SS6004473.38.sorted.bam
+		B_Mandenka-3    SS6004470.38.sorted.bam
+		
+		
+6. To speed up the script, findprovirus_1.pl, the output file from makelist.pl is split to multiple files using the script called 'splitfile_for_parallel.pl' (provided in the util folder).  Using 'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) multiple jobs are launched.
 
 
 Questions
