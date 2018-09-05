@@ -62,7 +62,7 @@ Output: The predictions are in the *.prediction_alleles.txt
 
 if you want to try an alternate assembler, the following script is recommended to run on the output from first (*.prediction_alleles.txt).
 
-	Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file from the first run -p path of the outputdirectory -bl location of bamfiles[-v] [-c] [-h] [-s]
+	Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file from the first run -p path of the outputdirectory -bl location of bamfiles -st seqtk path -bu bamutils path -sp spade path -mp minia path -cp cap3 path -bp blast path -bd bedtools[-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
     -t,--table   	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
@@ -70,7 +70,6 @@ if you want to try an alternate assembler, the following script is recommended t
     -p,--path   	(STRING) output directory name (path where extracted reads, mapped reads, extracted genomic sequences are found from the previous run)	  
     -bl,--bamloc	(STRING) location of bam files
     -st,--seqtkpro		(STRING) path of seqtk
-    -pc,--picard		(STRING) path of picardtools
     -cp,--cap3		(STRING) path of cap3 assembler
     -bp,--blast		(STRING) path of blast 
     -bd,--bedtools		(STRING) path of bedtools
