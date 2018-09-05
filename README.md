@@ -179,9 +179,7 @@ Output: A bed format file containing cordinates and a unique name stating whethe
 		B_Dinka-3       SS6004480.38.sorted.bam
 		B_Ju_hoan_North-4       SS6004473.38.sorted.bam
 		B_Mandenka-3    SS6004470.38.sorted.bam
-		
-		
-6.To predict the presence of a solo LTR allele using a denovo assembly method, genome sequence needs to be extracted and the version of the human reference genome used for creating the bam file has to be provided.
+6. To predict the presence of a solo LTR allele using a denovo assembly method, genome sequence needs to be extracted and the version of the human reference genome used for creating the bam file has to be provided.
 
 7. To speed up the script, findprovirus_1.pl, the output file from makelist.pl is split to multiple files using the script called 'splitfile_for_parallel.pl' (provided in the util folder).  Using 'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) multiple jobs are launched.
 
