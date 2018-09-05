@@ -65,15 +65,15 @@ if you want to try an alternate assembler, the following script is recommended t
 	Usage: perl findprovirus_2.pl -t BAM ID table -f prediction output file from the first run -p path of the outputdirectory -bl location of bamfiles -st seqtk path -bu bamutils path -sp spade path -mp minia path -cp cap3 path -bp blast path -bd bedtools[-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
-    -t,--table   	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
-    -f,--file   	(STRING) output from findprovirus_1 script (*.prediction_alleles.txt)
-    -p,--path   	(STRING) output directory name (path where extracted reads, mapped reads, extracted genomic sequences are found from the previous run)	  
-    -bl,--bamloc	(STRING) location of bam files
-    -st,--seqtkpro	(STRING) path of seqtk
+    -t,--table		(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
+    -f,--file		(STRING) output from findprovirus_1 script (*.prediction_alleles.txt)
+    -p,--path		(STRING) output directory name (path where extracted reads, mapped reads, extracted genomic sequences are found from the previous run)	  
+    -bl,--bamlocatn		(STRING) location of bam files
+    -st,--seqtkpro		(STRING) path of seqtk
     -cp,--cap3		(STRING) path of cap3 assembler
     -bp,--blast		(STRING) path of blast 
-    -bd,--bedtools	(STRING) path of bedtools
-    -bu,--bamutils	(STRING) path of bamutils
+    -bd,--bedtools		(STRING) path of bedtools
+    -bu,--bamutils		(STRING) path of bamutils
     -sp,--spade		(STRING) path of spade
     -mp,--minia		(STRING) path of minia assembler
     
