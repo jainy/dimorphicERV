@@ -12,13 +12,18 @@ This pipeline helps to identify solo-LTR to provirus variants.
 
 Inorder to obtain the mappability scores of HERV regions, an indexed mysql table of the mappability scores for the genome has to be generated. The script uses the data from the table to calculate the mappability scores of the regions where discordant reads are mapped.
 
-	Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinates -bl location of bamfiles -b [-p path of the outputdirectory][-g path of the genome][-te TEseq][-m ][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
+	Usage: perl findprovirus_1.pl -t BAM ID table -f file with ltr cordinates -bl location of bamfiles -b -st seqtk path -pc picardtools path -cp cap3 path -bp blast path -bd bedtools [-p path of the outputdirectory][-g path of the genome][-te TEseq][-m ][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]
 	
     MANDATORY ARGUMENT:	
 	-t,--table 	      	(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
     -f,--file         	(STRING) file containing cordinates of solo LTR (sampleID, chr, start, end (of solo LTR),unique identifier,length,strand ) 
     -bl,--bamlocation 	(STRING) location of bam files  
     -b,--both   		(BOOL)   run extraction and assembly with sliced bam file for viewing IGV
+    -st,--seqtkpro	  (STRING) path of seqtk
+    -pc,--picard	  (STRING) path of picardtools
+    -cp,--cap3		  (STRING) path of cap3 assembler
+    -bp,--blast		  (STRING) path of blast 
+    -bd,--bedtools	  (STRING) path of bedtools
     
     OPTIONAL ARGUMENTS:  
     -p,--path   		(STRING) output directory name (path)
@@ -116,10 +121,8 @@ Installation and Requirements
 	git clone https://github.com/jainy/dimorphicERV
 	cd dimorphicERV
 	
-The path of the following tools need to be added to the scripts.
 
-
-The following tools are required for running findprovirus_1 and findsoloLTR scripts. These softwares has to be installed and the location has to be added in the script
+The following tools are required for running findprovirus_1 and findsoloLTR scripts. These softwares has to be installed  and the paths needs to be added to the command line
 
 samtools (http://www.htslib.org/)
 seqtk (https://github.com/lh3/seqtk)
