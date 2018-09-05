@@ -174,8 +174,8 @@ Output: A bed format file containing cordinates and a unique name stating whethe
 
 3. Use the command 'grep' "soloLTR" and "2LTR" to create two text files containing solo LTRs and provirus
 4. To add the genome IDs that need to be tested as the first column to the above file containing coordinates of HERVs, use the script called makelist.pl provided in the util folder.
-5. Prepare a separate table with genome ID as the first column and second column as the name of the bam file separated by a tab (used for -t option for the findprovirus and findsoloLTR scripts)
-		example: 
+5. Prepare a separate table with genome ID as the first column and second column as the name of the bam file separated by a tab (used for -t option for the findprovirus and findsoloLTR scripts) An example is given below. 
+
 		B_Dinka-3       SS6004480.38.sorted.bam
 		B_Ju_hoan_North-4       SS6004473.38.sorted.bam
 		B_Mandenka-3    SS6004470.38.sorted.bam
