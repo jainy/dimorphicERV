@@ -17,7 +17,7 @@ Inorder to obtain the mappability scores of HERV regions, an indexed mysql table
     MANDATORY ARGUMENT:	
 	-t,--table		(STRING) file contain accession information first column needs to be the IDs, second column BAMIDs
     -f,--file		(STRING) file containing cordinates of solo LTR (sampleID, chr, start, end (of solo LTR),unique identifier,length,strand ) 
-    -bl,--bamlocation		(STRING) location of bam files  
+    -bl,--bamlocat		(STRING) location of bam files  
     -b,--both		(BOOL)   run extraction and assembly with sliced bam file for viewing IGV
     -st,--seqtkpro		(STRING) path of seqtk
     -pc,--picard		(STRING) path of picardtools
