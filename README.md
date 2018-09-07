@@ -208,7 +208,7 @@ III. Get the reference genome in fasta
 
 IV. Using parallel to speed up the script
 
-1. The output file from makelist.pl is split to multiple files using the script called 'splitfile_for_parallel.pl' (provided in the util folder). 
+1. The output file from makelist.pl is split to multiple files using the script called 'splitfile_for_parallel_individuals.pl' (provided in the util folder). 
 
 2. Using 'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) multiple jobs are launched.
 
