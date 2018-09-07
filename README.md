@@ -184,7 +184,7 @@ Sample  file:
 	chr4	87917751	87918149	HERVH_chr4_Sltr_1368	462	+
 
 
-4. To add the genome IDs that need to be tested as the first column to the above file containing coordinates of HERVs, use the script called makelist.pl provided in the util folder.
+4. To add the genome IDs that need to be tested as the first column to the above file containing coordinates of HERVs, use the script called makelist.pl provided in the util folder. Please type 'perl scriptname -h' to see the usage of the script.
 
 Sample file:
 
@@ -202,13 +202,15 @@ Sample file:
 		B_Ju_hoan_North-4       SS6004473.38.sorted.bam
 		B_Mandenka-3    SS6004470.38.sorted.bam
 		
-III. Get the reference genome in fasta
+III. Get the reference genome in fasta (needed for findprovirus_1)
 
 1. To predict the presence of a solo LTR allele using a denovo assembly method, genome sequence needs to be extracted and the version of the human reference genome used for creating the bam file has to be provided.
 
-IV. Using parallel to speed up the script
+IV. Create a fasta file with the consensus internal sequence of HERV (needed for findprovirus_1)
 
-1. The output file from makelist.pl is split to multiple files using the script called 'splitfile_for_parallel_individuals.pl' (provided in the util folder). 
+V. Using parallel to speed up the script
+
+1. The output file from makelist.pl is split to multiple files using the script called 'splitfile_for_parallel_individuals.pl' (provided in the util folder). Please type 'perl scriptname -h' to see the usage of the script.
 
 2. Using 'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) multiple jobs are launched.
 
