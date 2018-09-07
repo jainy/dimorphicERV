@@ -10,6 +10,7 @@ use strict;
 use Carp;
 use Getopt::Long;
 use File::Path qw(make_path remove_tree);
+use Cwd;
 
 my $version = "1.5";
 my $scriptname = "makelist.pl";
@@ -53,6 +54,8 @@ GetOptions ('t=s' => \$table,
 die "\n Script $scriptname version $version\n\n" if ((! $table) && (! $file) && (! $help) && (! $chlog) && ($v));
 die $changelog if ($chlog);
 die $usage if ((! $file) || !($table) || ($help));
+my $cwd = getcwd();
+$path = $cwd if (!$path) ;
 $out = "$path/$file.list.txt" if (! $out);
 #-----------------------------------------------------------------------------
 #----------------------------------- MAIN ------------------------------------
