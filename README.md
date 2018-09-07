@@ -146,6 +146,8 @@ bamUtil(https://github.com/statgen/bamUtil)
 
 Preparing the input files
 ------------------------------------------------------------------------------------------------------------
+I. To prepare the file containing the LTR coordinates
+
 
 
 1. To generate the catalogue of solo LTR and proviral elements of a particular family the tool
@@ -173,16 +175,42 @@ One Code to Find Them All (Bailly-Bechet et al. 2014) is used on the repeatmaske
 Output: A bed format file containing cordinates and a unique name stating whether its a solo LTR or a 2 LTR provirus
 
 3. Use the command 'grep' "soloLTR" and "2LTR" to create two text files containing solo LTRs and provirus
+
+Sample  file:
+
+	chr4	83234495	83234897	HERVH_chr4_Sltr_1363	448	+
+	chr4	83235408	83235838	HERVH_chr4_Sltr_1364	450	+
+	chr4	83850020	83850501	HERVH_chr4_Sltr_1365	448	C
+	chr4	87917751	87918149	HERVH_chr4_Sltr_1368	462	+
+
+
 4. To add the genome IDs that need to be tested as the first column to the above file containing coordinates of HERVs, use the script called makelist.pl provided in the util folder.
-5. Prepare a separate table with genome ID as the first column and second column as the name of the bam file separated by a tab (used for -t option for the findprovirus and findsoloLTR scripts) An example is given below. 
+
+Sample file:
+
+		B_Dinka-3       chr2    183529906       183530354       HERVH_chr2_Sltr_847     448     +
+		B_Dinka-3       chr21   17087734        17088180        HERVH_chr21_Sltr_1001   442     +
+		B_Dinka-3       chr6    23029012        23029421        HERVH_chr6_Sltr_1585    446     +
+
+II. Preparing the bam id table		
+
+1. Prepare a separate table with genome ID as the first column and second column as the name of the bam file separated by a tab (used for -t option for the findprovirus and findsoloLTR scripts) An example is given below. 
+
+Sample file:
 
 		B_Dinka-3       SS6004480.38.sorted.bam
 		B_Ju_hoan_North-4       SS6004473.38.sorted.bam
 		B_Mandenka-3    SS6004470.38.sorted.bam
+		
+III. Get the reference genome in fasta
 
-6. To predict the presence of a solo LTR allele using a denovo assembly method, genome sequence needs to be extracted and the version of the human reference genome used for creating the bam file has to be provided.
+1. To predict the presence of a solo LTR allele using a denovo assembly method, genome sequence needs to be extracted and the version of the human reference genome used for creating the bam file has to be provided.
 
-7. To speed up the script, findprovirus_1.pl, the output file from makelist.pl is split to multiple files using the script called 'splitfile_for_parallel.pl' (provided in the util folder).  Using 'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) multiple jobs are launched.
+IV. Using parallel to speed up the script
+
+1. The output file from makelist.pl is split to multiple files using the script called 'splitfile_for_parallel.pl' (provided in the util folder). 
+
+2. Using 'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) multiple jobs are launched.
 
 
 Questions
