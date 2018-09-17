@@ -52,7 +52,7 @@ Output: The predictions are in the *.prediction_alleles.txt
 	Col 3: Number of discordants reads whose mates have significant homology with the internal sequence of provirus
 	Col 4: Percent of the de novo assembled contig aligned to reference solo LTR allele (best hit when using BLAST)
 	Col 5: Ratio of average read depth at the solo LTR to the average of read depths of all solo LTRs
-	Col 6: Predicted genotype (S for solo LTR, P for Provirus)
+	Col 6: Predicted alleles (S for solo LTR, P for Provirus)
 	Col 7: Allele for which the prediction is not well-supported
 	Col 8: Average mappability score
 	Col 9: Cordinates of non-overlapping regions where discordant reads are mapped and the respective average mappability scores
@@ -119,7 +119,7 @@ Output: The output is *.readdepth.output.txt.
 	Col 2: Average Read depth at 5' 250 bp
 	Col 3: Average Read depth across the HERV
 	Col 4: Average Read depth at 3' 250 bp
-	Col 5: Predicted genotype (2 (two provirus alleles), 1 (1 provirus and 1 solo LTR), 0 (two solo LTR alleles))
+	Col 5: Predicted alleles (2 (two provirus alleles), 1 (1 provirus and 1 solo LTR), 0 (two solo LTR alleles))
 	Col 6: Percent Read depth  (Read depth at the HERV/(Average of Read depth at flanks))*100
 	Col 7: Mappability score at the provirus region, length of the provirus => average score and weighted score where score is mulitplied by its corresponding length
 	
