@@ -865,7 +865,7 @@ sub compare_twoHOH {
 	my @referencepostions = ();#directly loaded into arrays as it is done for each unique id
 	foreach my $uid (sort keys (%readhash)){
 		#print STDERR "1st key in readhash is $uid\n";
-		foreach my $readname (sort keys $readhash{$uid}) {
+		foreach my $readname (sort keys %{$readhash{$uid}}) {
 			if ($readname =~ /^(.*)\/(\d)/) {
 				$head = "$1\/2" if ($2 == 1);
 				$head = "$1\/1" if ($2 == 2);
