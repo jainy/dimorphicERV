@@ -18,7 +18,7 @@ use DBI;
 
 
 my $version = "3.2";
-my $scriptname = "verifydeletions.pl";
+my $scriptname = "findsoloLTR.pl";
 my $changelog = "
 #   - v1.0 = 30 July 2017 
 #	- v2.0 = 10 August 2017
@@ -31,7 +31,7 @@ my $changelog = "
 \n";
 
 my $usage = "\nUsage [$version]: 
-    perl $scriptname -t <table> -f <file with ltr cordinates> -bl <location of bamfiles> [-m yes to find mappabilty] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p <path of the outputdirectory>][-o <output file>] [-v] [-c] [-h] 
+    perl $scriptname -t <table> -f <file with ltr cordinates> -bl <location of bamfiles> [-m ] [-u Username] [-pd password][-db mysql database][-mt mysql table][-p <path of the outputdirectory>][-o <output file>] [-v] [-c] [-h] 
 	
     MANDATORY ARGUMENT:	
     -t,--table (string) file contain accession information first column needs to be the IDs, second column BAMIDs
@@ -39,14 +39,14 @@ my $usage = "\nUsage [$version]:
     -bl,--bamlocation (STRING) location of bam files
     	  
     OPTIONAL ARGUMENTS:
-    -m, --mappability  (STRING)  yes if need to find mappability; no if not needed
-    -mt,--table 		(STRING) mysql table e.g.	hg19wgEncodeCrgMapabilityAlign100mer_index
+    -m, --mappability  (BOOL)   if need to find mappability;
+    -mt,--table 		(STRING) mysql table has to prepare the table and load in mysql in advance e.g.	hg19wgEncodeCrgMapabilityAlign100mer_index
     												wgEncodeCrgMapabilityAlign100merhg38_lo_index
     -p,--path         	(STRING) output directory name (path)
                             	 Default = <current working directory>
-    -db --mysqldbinfo 	(STRING) ex. command: DBI:mysql:database=jainys_db;host=localhost;port=22;     
-    -u --user 			(STRING) Username for mysql databasemy e.g	jainy;
-    -pd,--password 		(STRING) password for mysql database e.g. wysql123
+    -db --mysqldbinfo 	(STRING) ex. command: has to create in advance before running the script DBI:mysql:database=jainys_db;host=localhost;port=22;     
+    -u --user 			(STRING) Username for mysql database has to create in advance e.g	jainy;
+    -pd,--password 		(STRING) password for mysql database has to create in advance e.g. wysql123
     -p,--path   (STRING) output directory name (path)
                          Default = <current working directory>
     -o,--output (STRING) output file
