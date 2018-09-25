@@ -213,12 +213,12 @@ V. Mappability scores were downloaded from UCSC and were converted to bed format
 A mysql table was created using the data:
 
 
-			 create table wgEncodeCrgMapabilityAlign100merhg38_lo_index (chromo varchar(50) not null,start decimal(12,0) not null,end decimal(12,0) not null,id varchar(20) not null,score decimal(12,6) not null,primary key (id),INDEX ind1 (chromo,start)); 
+	create table wgEncodeCrgMapabilityAlign100merhg38_lo_index (chromo varchar(50) not null,start decimal(12,0) not null,end decimal(12,0) not null,id varchar(20) not null,score decimal(12,6) not null,primary key (id),INDEX ind1 (chromo,start)); 
 
 The data was loaded to the table:
 
 
-		load data local infile 'wgEncodeCrgMapabilityAlign100merhg38_lo.bed' into table databasename.wgEncodeCrgMapabilityAlign100merhg38_lo_index fields terminated by '\t' lines terminated by '\n'; 
+	load data local infile 'wgEncodeCrgMapabilityAlign100merhg38_lo.bed' into table databasename.wgEncodeCrgMapabilityAlign100merhg38_lo_index fields terminated by '\t' lines terminated by '\n'; 
 
 
 VI. Using parallel to speed up the script
