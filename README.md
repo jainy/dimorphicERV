@@ -208,7 +208,7 @@ III. Get the reference genome in fasta (needed for findprovirus_1)
 
 IV. Create a fasta file with the consensus internal sequence of HERV (needed for findprovirus_1)
 
-V. Mappability scores were downloaded from UCSC and were converted to bed format, then lifted over to hg38.
+V. Mappability scores were downloaded from UCSC and were converted to bed format, then lifted over to hg38. Then the data was loaded in to an indexed mysql table in a database (username,password, database name, table name should be provided.
 
 A mysql table was created using the data:
 
