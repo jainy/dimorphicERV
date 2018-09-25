@@ -209,13 +209,19 @@ III. Get the reference genome in fasta (needed for findprovirus_1)
 IV. Create a fasta file with the consensus internal sequence of HERV (needed for findprovirus_1)
 
 V. Mappability scores were downloaded from UCSC and were converted to bed format, then lifted over to hg38.
+
 A mysql table was created using the data:
+
+
 			 create table wgEncodeCrgMapabilityAlign100merhg38_lo_index (chromo varchar(50) not null,start decimal(12,0) not null,end decimal(12,0) not null,id varchar(20) not null,score decimal(12,6) not null,primary key (id),INDEX ind1 (chromo,start)); 
+
 The data was loaded to the table:
+
+
 		load data local infile 'wgEncodeCrgMapabilityAlign100merhg38_lo.bed' into table databasename.wgEncodeCrgMapabilityAlign100merhg38_lo_index fields terminated by '\t' lines terminated by '\n'; 
 
 
-V. Using parallel to speed up the script
+VI. Using parallel to speed up the script
 
 1. The output file from makelist.pl is split to multiple files using the script called 'splitfile_for_parallel_individuals.pl' (provided in the util folder). Please type 'perl scriptname -h' to see the usage of the script.
 
