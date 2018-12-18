@@ -230,4 +230,6 @@ VI. Using parallel to speed up the script
 
 Questions
 ------------------------------------------------------------------------------------------------------------
-Please contact Jainy Thomas (jainyt@genetics.utah.edu) for questions or support.
+Please contact Jainy Thomas (jainyt@genetics.utah.edu) for questions or support. Please find the associated publication: Thomas J, Perron H and Feschotte C.  Variation in proviral content among human genomes mediated by LTR recombination Mobile DNA 2018 9:36 https://doi.org/10.1186/s13100-018-0142-3 
+
+
