@@ -1055,7 +1055,7 @@ sub calculate_readepth {
 		} else {
 			warn ("avg readdepth for $person could not be identified\n");
 		}
-		if (! $rdelement == 0) {
+		if ()(! $rdelement == 0) && (! $avrd_in == 0)){
 			$depthdiff = ($rdelement/$avrd_in);
 			
 			$depthdiff = sprintf("%.2f",$depthdiff);
