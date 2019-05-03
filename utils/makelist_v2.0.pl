@@ -68,7 +68,7 @@ my %finalout;
 make_path ("$path");
 &load_IDs();
 &print_file();
-print Dumper %finalout,"\n";
+#print Dumper %finalout,"\n";
 
 exit;
 
