@@ -11,13 +11,16 @@ use Carp;
 use Getopt::Long;
 use File::Path qw(make_path remove_tree);
 use Cwd;
+use Data::Dumper;
 
-my $version = "1.5";
+my $version = "2.0";
 my $scriptname = "makelist.pl";
 my $changelog = "
 #   - v1.0 = 17 July 2017
 #	- v1.5 = 6 April 2018
 #				added path of the outputdirectory
+#	- v2.0 = 3 May 2019
+#				going to print the output after sorting on individuals
 #
 #
 #
@@ -61,9 +64,12 @@ $out = "$path/$file.list.txt" if (! $out);
 #----------------------------------- MAIN ------------------------------------
 #-----------------------------------------------------------------------------
 my %individualids;
+my %finalout;
 make_path ("$path");
 &load_IDs();
 &print_file();
+print Dumper %finalout,"\n";
+
 exit;
 
 
@@ -78,7 +84,9 @@ sub load_IDs {
 		my @col = split (/\s+/,$data);
 		#my @firstcol = split (/\./,$col[0]);
 		my $individual = $col[0];
+		my @memb = ();
 		$individualids{$individual} = 1;
+		$finalout{$individual}= [@memb];
 	}
 	return (%individualids);
 	close ($th);
@@ -86,14 +94,22 @@ sub load_IDs {
 
 sub print_file {
 	open (my $ih, ">",$out ) or die ("cannot write file $out $!\n");
-	open (my $fh,"<",$file) or die ("cannot open file $file to read $!\n");
+		open (my $fh,"<",$file) or die ("cannot open file $file to read $!\n");
 	while (<$fh>) {
 		chomp (my $dataline = $_);
 		#my @colum = split (/\s+/,$dataline);
 		#my $line = join ("\t", @colum);
 		foreach my $indi (sort keys %individualids) {
-		 	print $ih "$indi\t$dataline\n";
+			push @{ $finalout{$indi} },$dataline;
+			#print $ih "$indi\t$dataline\n";
 		}
+	}
+	for my $ids (keys %finalout) {
+		for my $i(0..$#{$finalout{$ids}}) {
+			my $el = $finalout{$ids}[$i];
+			print $ih "$ids\t$el\n";
+		}
+		
 	}
 	close ($ih);
 	close ($fh);
