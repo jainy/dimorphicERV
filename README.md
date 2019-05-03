@@ -186,7 +186,7 @@ Sample  file:
 
 4. To add the genome IDs that need to be tested as the first column to the above file containing coordinates of HERVs, use the script called makelist.pl provided in the util folder. Please type 'perl scriptname -h' to see the usage of the script.
 
-Sample file:
+Sample output file:
 
 		B_Dinka-3       chr2    183529906       183530354       HERVH_chr2_Sltr_847     448     +
 		B_Dinka-3       chr21   17087734        17088180        HERVH_chr21_Sltr_1001   442     +
@@ -223,7 +223,7 @@ The data was loaded to the table:
 
 VI. Using parallel to speed up the script
 
-1. The output file from makelist.pl is split to multiple files using the script called 'splitfile_for_parallel_individuals.pl' (provided in the util folder). Please type 'perl scriptname -h' to see the usage of the script.
+1. The output file from makelist_v2.0.pl is split to multiple files using the script called 'splitfile_for_parallel_individuals.pl' (provided in the util folder). Please type 'perl scriptname -h' to see the usage of the script. 
 
 2. Using 'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) multiple jobs are launched.
 
