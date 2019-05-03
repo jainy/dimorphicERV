@@ -225,7 +225,13 @@ VI. Using parallel to speed up the script
 
 1. The output file from makelist_v2.0.pl is split to multiple files using the script called 'splitfile_for_parallel_individuals.pl' (provided in the util folder). Please type 'perl scriptname -h' to see the usage of the script. 
 
+		perl /home/jainy/bin/myscripts/splitfile_jt_v3.0_forgenotyping_SGDP.pl -f *.list.txt -s yes -n 10 -o listof_files.txt
+	A folder called splitbyindividuals is created containing the splitfiles based on the number of individuals requested for split
+
 2. Using 'parallel' (https://www.gnu.org/software/parallel/parallel_tutorial.html) multiple jobs are launched.
+		cd splitbyindividuals and then launch the script(example commandline below).
+				
+		cat ../listof_files.txt | nohup /usr/bin/parallel -j 10 --results path_of_directory_forstderr 'perl pathtofindprovirus_1.pl -t BAM ID table -f file with ltr cordinates -bl location of bamfiles -b -st seqtk path -pc picardtools path -cp cap3 path -bp blast path -bd bedtools [-p path of the outputdirectory][-g path of the genome][-te TEseq][-m ][-u Username] [-pd password][-db mysql database][-mt mysql table] [-i] [-e] [-x] [-v] [-c] [-h] [-s]' &
 
 
 Questions
