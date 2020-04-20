@@ -24,6 +24,7 @@ my $changelog = "
 #	- v4.0 = 12 October 2017
 #		modified script to use multiple LTR sequences for an internal sequence
 #	- v5.0 = prints in the bedoutput format
+#				#added the option > or = to the last condition in naming
 #
 \n";
 my $usage = "\nUsage [$version]: 
@@ -151,7 +152,7 @@ sub rename_elements {
 			print $fhout "$new_id\t$rename"."_$loc[0]_Sltr_fr_$num\t$loc[3]\t$loc[4]\n" ;
 		} elsif (($ltr > 1) && ($Hervhint == 0)) {
 			print $fhout "$new_id\t$rename"."_$loc[0]_Sltr_fr_$num\t$loc[3]\t$loc[4]\n" ;
-		} elsif (($ltr > 2) && ($Hervhint > 1)) {
+		} elsif (($ltr > 2) && ($Hervhint >= 1)) {
 			print $fhout "$new_id\t$rename"."_$loc[0]_2ltr_int_fr_$num\t$loc[3]\t$loc[4]\n" ;
 		} else {
 			print $fhout "$new_id\t$rename.notdefined\n";
